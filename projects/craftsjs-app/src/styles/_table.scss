@@ -1,0 +1,293 @@
+@mixin tableLineTrColor($color) {
+    &>tr{
+        & > td {
+            border-bottom-color: $color;
+        }
+        & > th{
+            border-bottom-color: $color;
+        }
+    }
+}
+
+@mixin tableColor($color) {
+    & > thead {
+        @include tableLineTrColor($color);
+    }
+    & > tbody {
+        @include tableLineTrColor($color);
+    }
+}
+
+@mixin table($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+
+    .table {
+        &-actions{
+            min-width: 106px;
+        }
+        .mat-column-actions {
+            flex: 0 1 132px;
+        }
+        .mat-cell {
+            min-width: 0;
+            align-items: center;
+            padding: 0.5em;
+            word-break: break-word;
+            word-wrap: break-word;
+        }
+        .mat-header-row {
+            min-height: 64px;
+            .mat-header-cell {
+                padding: 0.5em;
+            }
+        }
+        .mat-row {
+            position: relative;
+            min-height: 57px;
+        }
+        width: 100%;
+        &-container {
+            position: relative;
+            display: grid;
+        }
+        &-primary {
+            @include tableColor(mat-color($primary, 0.3));
+        }
+        &-accent {
+            @include tableColor(mat-color($accent, 0.3));
+        }
+        &-warn {
+            @include tableColor(mat-color($warn, 0.3));
+        }
+        &-loading{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.15);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &-message {
+                color: mat-color($warn, 1);
+                max-width: 360px;
+                text-align: center;
+                background-color: #ffffff;
+                border-radius: 6px;
+            }
+        }
+        &-container{
+            position: relative;
+            min-height: 162px;
+        }
+    }
+
+    .table-responsive-vertical {
+        display: grid;
+        overflow: auto;
+        position: relative;
+        > .table {
+            > thead, mat-header-row{
+                > th, mat-header-cell {
+                    min-width: 120px;
+                    padding-right: 1.5em;
+                }
+            }
+            > tbody {
+                > tr {
+                    > td {
+                        min-width: 90px;
+                        padding-right: 1.5em;
+                    }
+                }
+            }
+            > mat-row {
+                > mat-cell{
+                    min-width: 120px;
+                    padding-right: 1.5em;
+                }
+            }
+        }
+        @media screen and (max-width: 981px) {
+            > .table {
+                margin-bottom: 0;
+                background-color: transparent;
+                > thead,
+                > tfoot {
+                    display: none;
+                }
+                > mat-header-row {
+                    display: none;
+                }
+                > mat-row {
+                    display: block;
+                    > mat-cell {
+                        display: flex;
+                        border: 1px solid #e0e0e0;
+                        border-radius: 2px;
+                        margin-bottom: 1.6rem;
+                        height: auto;
+                        justify-content: space-between;
+                        padding: 1em;
+                    }
+                    > mat-cell[title]:before {
+                        content: attr(title);
+                        float: left;
+                        font-size: inherit;
+                        font-weight: 400;
+                        color: #757575;
+                        padding: 0.5em;
+                    }
+                    &::after {
+                        min-height: auto;
+                    }
+                }
+                > tbody {
+                    display: block;
+                    > tr {
+                        display: block;
+                        border: 1px solid #e0e0e0;
+                        border-radius: 2px;
+                        margin-bottom: 1.6rem;
+                        height: auto;
+
+                        > td {
+                            display: block;
+                            background-color: #fff;
+                            text-align: right;
+                            padding: 1.6rem;
+                        }
+                        > td[title]:before {
+                            content: attr(title);
+                            float: left;
+                            font-size: inherit;
+                            font-weight: 400;
+                            color: #757575;
+                            padding: 0.5em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    $mat-header-row-height: 56px;
+$mat-row-height: 48px;
+$mat-row-horizontal-padding: 24px;
+
+/**
+ * Flex-based table structure
+ */
+mat-table {
+  display: block;
+}
+
+mat-header-row {
+  min-height: $mat-header-row-height;
+}
+
+mat-row, mat-footer-row {
+  min-height: $mat-row-height;
+}
+
+mat-row, mat-header-row, mat-footer-row {
+  display: flex;
+  // Define a border style, but then widths default to 3px. Reset them to 0px except the bottom
+  // which should be 1px;
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-style: solid;
+  align-items: center;
+  box-sizing: border-box;
+
+  // Workaround for https://goo.gl/pFmjJD in IE 11. Adds a pseudo
+  // element that will stretch the row the correct height. See:
+  // https://connect.microsoft.com/IE/feedback/details/802625
+  &::after {
+    display: inline-block;
+    min-height: inherit;
+    content: '';
+  }
+}
+
+// Note: we use `first-of-type`/`last-of-type` here in order to prevent extra
+// elements like ripples or badges from throwing off the layout (see #11165).
+mat-cell:first-of-type, mat-header-cell:first-of-type, mat-footer-cell:first-of-type {
+  padding-left: $mat-row-horizontal-padding;
+
+  [dir='rtl'] & {
+    padding-left: 0;
+    padding-right: $mat-row-horizontal-padding;
+  }
+}
+
+mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-type {
+  padding-right: $mat-row-horizontal-padding;
+
+  [dir='rtl'] & {
+    padding-right: 0;
+    padding-left: $mat-row-horizontal-padding;
+  }
+}
+
+mat-cell, mat-header-cell, mat-footer-cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  word-wrap: break-word;
+  min-height: inherit;
+}
+
+/**
+ * Native HTML table structure
+ */
+table.mat-table {
+  border-spacing: 0;
+}
+
+tr.mat-header-row {
+  height: $mat-header-row-height;
+}
+
+tr.mat-row, tr.mat-footer-row {
+  height: $mat-row-height;
+}
+
+th.mat-header-cell {
+  text-align: left;
+
+  [dir='rtl'] & {
+    text-align: right;
+  }
+}
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+  padding: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+// Note: we use `first-of-type`/`last-of-type` here in order to prevent extra
+// elements like ripples or badges from throwing off the layout (see #11165).
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+  padding-left: $mat-row-horizontal-padding;
+
+  [dir='rtl'] & {
+    padding-left: 0;
+    padding-right: $mat-row-horizontal-padding;
+  }
+}
+
+th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+  padding-right: $mat-row-horizontal-padding;
+
+  [dir='rtl'] & {
+    padding-right: 0;
+    padding-left: $mat-row-horizontal-padding;
+  }
+}
+}

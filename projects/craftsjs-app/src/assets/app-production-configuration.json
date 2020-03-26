@@ -1,0 +1,6 @@
+{
+  "remoteServiceBaseUrl": "https://imarapi.azurewebsites.net",
+  "appBaseUrl": "https://imar-ui.appspot.com",
+  "tenancyNamePlaceHolderInUrl": "{TENANCY_NAME}",
+  "enabledTenancy": false
+}

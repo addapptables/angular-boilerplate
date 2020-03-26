@@ -14,7 +14,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@craftsjs/boilerplate": [
+        "dist/craftsjs/boilerplate/craftsjs-boilerplate",
+        "dist/craftsjs/boilerplate"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

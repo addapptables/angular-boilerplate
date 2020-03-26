@@ -1,0 +1,23 @@
+    @mixin alert($variables) {
+        .alert {
+            text-align: center;
+            padding: 1.5em;
+            font-size: 1.2em;
+            &-success {
+                background-color: map-get($variables, color-success);
+                color: map-get($variables, text);;
+            }
+            &-danger {
+                background-color: map-get($variables, color-danger);
+                color: map-get($variables, text);
+            }
+            &-info {
+                background-color: map-get($variables, color-info);
+                color: map-get($variables, text);;
+            }
+            &-warning {
+                background-color: map-get($variables, color-warning);
+                color: map-get($variables, text);;
+            }
+        }
+    }

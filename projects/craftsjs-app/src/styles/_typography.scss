@@ -1,0 +1,113 @@
+
+
+@mixin typography($variables, $typography, $theme) {
+
+    $accent: map-get($theme, accent);
+
+    .h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
+        font-family: mat-font-family($typography);
+        font-weight: mat-font-weight($typography, body-1);
+        line-height: 1.5em;
+    }
+
+    body {
+        margin: 0;
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    html * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, .h1 {
+        font-size: map-get($variables, font-size-h1);
+        line-height: 1.15em;
+    }
+
+    h2, .h2{
+        font-size: map-get($variables, font-size-h2);
+    }
+
+    h3, .h3{
+        font-size: map-get($variables, font-size-h3);
+        line-height: 1.4em;
+        margin: 20px 0 10px;
+    }
+
+    h4, .h4{
+        font-size: map-get($variables, font-size-h4);
+        line-height: 1.4em;
+        font-weight: 350;
+    }
+
+    h5, .h5 {
+        font-size: map-get($variables, font-size-h5);
+        line-height: 1.4em;
+        margin-bottom: 15px;
+    }
+
+    h6, .h6{
+        font-size: map-get($variables, font-size-h6);
+        text-transform: uppercase;
+        font-weight: map-get($variables, font-weight-bold);
+    }
+
+    .text-warning {
+      color: map-get($variables, color-warning);
+    }
+    .text-blue {
+      color: map-get($variables, color-blue);
+    }
+    .text-danger {
+      color: map-get($variables, color-danger);
+    }
+    .text-success {
+      color: map-get($variables, color-success);
+    }
+    .text-info {
+      color: map-get($variables, color-info);
+    }
+    .text-gray{
+        color: map-get($variables, gray-color);
+    }
+    .text-light-gray{
+        color: map-get($variables, gray-light);
+    }
+    .text-accent{
+        color: mat-color($accent, 0.9)
+    }
+    .addapptable-title {
+        margin-bottom: 0.5em;
+        padding-right: 0.5em;
+        width: fit-content;
+    }
+    .addapptable-group {
+        margin-bottom: 0.5em;
+    }
+
+    .bg{
+        &-blue{
+            background-color: map-get($variables, color-blue);
+        }
+        &-danger{
+            background-color: map-get($variables, color-danger);
+        }
+        &-success{
+            background-color: map-get($variables, color-success);
+        }
+        &-info{
+            background-color: map-get($variables, color-info);
+        }
+        &-gray{
+            background-color: map-get($variables, gray-color);
+        }
+    }
+
+    .selected {
+        background-color: mat-color($accent, 0.9);
+        color: white;
+    }
+}
+

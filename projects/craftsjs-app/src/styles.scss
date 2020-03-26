@@ -1,0 +1,60 @@
+@import "~normalize-scss/sass/normalize/_import-now";
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import '~@addapptables/core/addapptables-grid.theme';
+@import '~@angular/material/theming';
+@import './styles/_breakpoints';
+@import './styles/_variables';
+@import './styles/typography';
+@import './styles/_general';
+@import './styles/_loader';
+@import './styles/form';
+@import './styles/table';
+@import './styles/print';
+@import './styles/material-icons';
+@import './styles/fonts';
+@import './styles/alert';
+@import '~@addapptables/menu/addapptables-menu.theme';
+@import '~@addapptables/alert/addapptables-alert.theme';
+@import '~@addapptables/card/addapptables-card.theme';
+@import '~@addapptables/notifier/addapptables-notifier.theme';
+@import "~materialize-css/sass/components/forms/file-input";
+
+@include mat-core();
+$addapptable-app-primary: mat-palette($mat-grey, 800);
+$addapptable-app-accent:  mat-palette($mat-red, 800, A100, 100);
+$addapptable-app-warn: mat-palette($mat-red);
+$addapptable-app-theme: mat-light-theme($addapptable-app-primary, $addapptable-app-accent, $addapptable-app-warn);
+$typography: mat-typography-config(
+  $font-family: '"Karla", sans-serif',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+body {
+  background-color: map-get($addapptable-theme-variables, gray-lighter);
+  color: map-get($addapptable-theme-variables, gray);
+  font-family: mat-font-family($typography);
+  flex: 1 0 auto;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  max-height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  canvas {
+    width: 100%;
+  }
+}
+body.theme-default {
+    @include angular-material-theme($addapptable-app-theme);
+    @include typography($addapptable-theme-variables, $typography, $addapptable-app-theme);
+    @include general($addapptable-theme-variables);
+    @include loader($addapptable-app-theme);
+    @include table($addapptable-app-theme);
+    @include addapptable-menu($addapptable-app-theme, $addapptable-theme-variables);
+    @include addapptable-alert($addapptable-theme-variables);
+    @include addapptable-card($addapptable-app-theme, $addapptable-theme-variables);
+    @include addapptable-notifier($addapptable-app-theme, $addapptable-theme-variables);
+    @include alert($addapptable-theme-variables);
+  }

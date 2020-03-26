@@ -1,0 +1,61 @@
+.mat-horizontal-stepper-header-container{
+    margin-bottom: 0.5em;
+}
+.mat-dialog-container{
+    margin: 1em 0 1em 0;
+    max-height: 95vh !important;
+}
+
+.modal-body-responsive{
+    max-height: calc(80vh - 100px) !important;
+}
+
+.form {
+    &-full-width{
+        width: 100%;
+        & > * {
+            width: 100%;
+        }
+        & > div > div > mat-form-field {
+            width: 100%;
+        }
+    }
+    &-checkbox{
+        display: inline-block;
+        margin-bottom: 1em;
+        mat-checkbox {
+            margin-right: 1em;
+            :last-child {
+                margin-right: 0;
+            }
+        }
+    }
+    &-horizontal{
+        width: 100%;
+        & > * {
+            display: inline-block;
+            margin-right: 1em;
+            :last-child {
+                margin-right: 0;
+            }
+        }
+        @include media-breakpoint-down('md') {
+            & > * {
+                width: 100%;
+            }
+        }
+    }
+}
+
+form {
+    mat-radio-group {
+        mat-radio-button {
+            margin-right: 1em;
+            display: inline-block;
+            margin-bottom: 1em;
+            :last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}

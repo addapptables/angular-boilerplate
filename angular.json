@@ -1,6 +1,172 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "craftsjs-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/craftsjs-app",
+      "sourceRoot": "projects/craftsjs-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/craftsjs-app",
+            "index": "projects/craftsjs-app/src/index.html",
+            "main": "projects/craftsjs-app/src/main.ts",
+            "polyfills": "projects/craftsjs-app/src/polyfills.ts",
+            "tsConfig": "projects/craftsjs-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/craftsjs-app/src/favicon.ico",
+              "projects/craftsjs-app/src/assets"
+            ],
+            "styles": [
+              "projects/craftsjs-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/craftsjs-app/src/environments/environment.ts",
+                  "with": "projects/craftsjs-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "craftsjs-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "craftsjs-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "craftsjs-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/craftsjs-app/src/test.ts",
+            "polyfills": "projects/craftsjs-app/src/polyfills.ts",
+            "tsConfig": "projects/craftsjs-app/tsconfig.spec.json",
+            "karmaConfig": "projects/craftsjs-app/karma.conf.js",
+            "assets": [
+              "projects/craftsjs-app/src/favicon.ico",
+              "projects/craftsjs-app/src/assets"
+            ],
+            "styles": [
+              "projects/craftsjs-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/craftsjs-app/tsconfig.app.json",
+              "projects/craftsjs-app/tsconfig.spec.json",
+              "projects/craftsjs-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/craftsjs-app/e2e/protractor.conf.js",
+            "devServerTarget": "craftsjs-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "craftsjs-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "@craftsjs/boilerplate": {
+      "projectType": "library",
+      "root": "projects/craftsjs/boilerplate",
+      "sourceRoot": "projects/craftsjs/boilerplate/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/craftsjs/boilerplate/tsconfig.lib.json",
+            "project": "projects/craftsjs/boilerplate/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/craftsjs/boilerplate/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/craftsjs/boilerplate/src/test.ts",
+            "tsConfig": "projects/craftsjs/boilerplate/tsconfig.spec.json",
+            "karmaConfig": "projects/craftsjs/boilerplate/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/craftsjs/boilerplate/tsconfig.lib.json",
+              "projects/craftsjs/boilerplate/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "7cf7a64b-37c5-4601-a995-8390e297556d"
+  },
+  "defaultProject": "craftsjs-app"
 }
