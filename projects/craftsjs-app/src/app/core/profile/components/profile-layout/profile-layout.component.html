@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-12 col-md-12 col-lg-6 col-xl-5">
+    <div class="row">
+      <div class="col-12">
+        <app-profile-basic-info></app-profile-basic-info>
+      </div>
+      <div class="col-12">
+        <card>
+          <card-header>
+            <card-header-oval>
+              <card-title>
+                <h4>{{'profile.changePassword' | translateAsync}}</h4>
+              </card-title>
+            </card-header-oval>
+          </card-header>
+          <card-body>
+            <app-profile-change-password></app-profile-change-password>
+          </card-body>
+        </card>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-12 col-lg-6 col-xl-7">
+    <card>
+      <card-header>
+        <card-header-oval>
+          <card-title>
+            <h4>{{'profile.updateInfo' | translateAsync}}</h4>
+          </card-title>
+        </card-header-oval>
+      </card-header>
+      <card-body>
+        <app-profile-form></app-profile-form>
+      </card-body>
+    </card>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.tree{
+    &-display-name {
+        cursor: pointer;
+        padding: 0.5em;
+    }
+    &-loading {
+        min-height: 100px;
+    }
+    &-empty-message{
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+    }
+}

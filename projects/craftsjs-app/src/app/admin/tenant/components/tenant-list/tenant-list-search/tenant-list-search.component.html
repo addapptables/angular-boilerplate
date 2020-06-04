@@ -1,0 +1,16 @@
+<form [formGroup]="form" class="form-horizontal" (ngSubmit)="submit()" autocomplete="off">
+  <mat-form-field>
+    <input formControlName="keyword" matInput [placeholder]="'general.searcher' | translateAsync">
+  </mat-form-field>
+  <mat-form-field>
+    <app-edition-select formControlName="editionId" [placeholder]="'edition.title' | translateAsync"></app-edition-select>
+  </mat-form-field>
+  <div class="buttons">
+    <button type="submit" mat-icon-button [matTooltip]="'general.search' | translateAsync">
+      <mat-icon>search</mat-icon>
+    </button>
+    <button type="button" mat-icon-button [matTooltip]="'general.clear' | translateAsync" (click)="clear()">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
+</form>

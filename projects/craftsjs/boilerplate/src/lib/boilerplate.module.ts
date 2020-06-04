@@ -1,19 +1,20 @@
 import { NgModule, APP_INITIALIZER, Injector, ModuleWithProviders } from '@angular/core';
-import { EffectsModule } from '@ngrx/effects';
-import { ReduxRegisterModule } from '@addapptables/ngrx-actions';
-import { SessionStore } from './@redux/session/stores/session.store';
-import { SessionEffects } from './@redux/session/effects/session.effect';
 import { InitialConfigurationService } from './services/initial-configuration.service';
 import { appInitializerFactory } from './app-initializer-factory';
 import { CONFIGURATION_BOILERPLATE, IS_PRODUCTION } from './tokens';
-import { ConfigurationStore } from './@redux/configuration/stores/configuration.store';
 import { BoilerplateModel } from './models/boilerplate.model';
+import { TokenService } from './services/token.service';
+import { AuthService } from './services/auth.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CraftsjsHttpInterceptor } from './services/interceptor.service';
+import { CookieService } from 'ngx-cookie-service';
+import { HttpErrorResponseService } from './services/http-error-response.service';
+import { SessionService } from './services/session.service';
+import { L10nTranslationModule } from 'angular-l10n';
 
 @NgModule({
-  imports: [
-    ReduxRegisterModule.forFeature('session', { store: SessionStore }),
-    ReduxRegisterModule.forFeature('configuration', { store: ConfigurationStore }),
-    EffectsModule.forFeature([SessionEffects])
+  providers: [
+    AuthService
   ]
 })
 export class BoilerplateModule {
@@ -23,6 +24,16 @@ export class BoilerplateModule {
       ngModule: BoilerplateModule,
       providers: [
         InitialConfigurationService,
+        TokenService,
+        CookieService,
+        HttpErrorResponseService,
+        SessionService,
+        L10nTranslationModule,
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: CraftsjsHttpInterceptor,
+          multi: true
+        },
         {
           provide: APP_INITIALIZER,
           useFactory: appInitializerFactory,
@@ -31,9 +42,7 @@ export class BoilerplateModule {
         },
         {
           provide: CONFIGURATION_BOILERPLATE,
-          useFactory: (initialConfigurationService: InitialConfigurationService) => {
-            return initialConfigurationService.configuration;
-          },
+          useFactory: initialConfiguration,
           deps: [InitialConfigurationService]
         },
         {
@@ -44,4 +53,8 @@ export class BoilerplateModule {
     };
   }
 
+}
+
+export function initialConfiguration(initialConfigurationService: InitialConfigurationService) {
+  return initialConfigurationService.configuration;
 }

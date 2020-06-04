@@ -1,0 +1,38 @@
+$color: #828282;
+
+.toolbar {
+    color: $color !important;
+    > div {
+        flex-wrap: wrap;
+        flex: 1;
+    }
+    > div addapptable-colapse-button-mobile{
+        margin-right: 5px;
+    }
+    &-actions{
+        display: flex;
+        flex-direction: row;
+        flex: 0;
+    }
+    &-tenant{
+        &-subscriptionEndDate{
+            font-size: 0.7em;
+            & > span {
+                margin-right: 0.5em;
+            }
+        }
+        &-indicator {
+            display: inline-block;
+            vertical-align: middle;
+            width: 10px;
+            height: 10px;
+            border-radius: 6px;
+            margin-right: 8px;
+
+            & + span {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+}

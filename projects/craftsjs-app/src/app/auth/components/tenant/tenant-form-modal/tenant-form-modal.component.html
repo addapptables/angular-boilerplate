@@ -1,0 +1,17 @@
+<craftsjs-modal>
+  <modal-header>
+    <h3 class="text-accent">{{'tenant.change' | translateAsync}}</h3>
+    <button mat-icon-button (click)="close()">
+      <mat-icon suffix>close</mat-icon>
+    </button>
+  </modal-header>
+  <modal-body>
+    <app-tenant-form #form (save)="close()"></app-tenant-form>
+  </modal-body>
+  <modal-footer>
+    <button type="submit" form="tenant-form" mat-raised-button color="accent" [disabled]="form.saving$ | async">
+      {{'general.save' | translateAsync}}
+    </button>
+    <button type="button" mat-raised-button (click)="close()">{{'general.close' | translateAsync}}</button>
+  </modal-footer>
+</craftsjs-modal>

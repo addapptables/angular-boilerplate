@@ -28,9 +28,11 @@
               "projects/craftsjs-app/src/assets"
             ],
             "styles": [
-              "projects/craftsjs-app/src/styles.scss"
+              "projects/craftsjs-app/src/styles.scss",
+              "projects/craftsjs-app/src/styles/font-awesome/css/all.min.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "preserveSymlinks": true
           },
           "configurations": {
             "production": {

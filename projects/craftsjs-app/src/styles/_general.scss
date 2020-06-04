@@ -1,7 +1,7 @@
 
 body {
-  background-color: map-get($addapptable-theme-variables, gray-lighter);
-  color: map-get($addapptable-theme-variables, gray);
+  background-color: map-get($craftsjs-theme-variables, gray-lighter);
+  color: map-get($craftsjs-theme-variables, gray);
 }
 
 @mixin general($variables) {

@@ -1,0 +1,43 @@
+<form autocomplete="off" id="tenant-form" [formGroup]="formGroup" class="form-full-width" (submit)="submit()">
+  <div class="row">
+    <!-- name Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <input matInput [placeholder]="'tenant.name' | translateAsync" formControlName="name" required>
+        <mat-error *ngIf="formGroup.controls.name.invalid">
+          <span *ngIf="formGroup.controls.name.errors.required">{{'general.required' | translateAsync}}</span>
+          <span *ngIf="formGroup.controls.name.errors.maxlength">{{'general.maxlength' | translateAsync: { x: maxNameLength } }}</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <!-- name Field -->
+
+    <!-- subDomain Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <input matInput [placeholder]="'tenant.subDomain' | translateAsync" formControlName="subDomain" required>
+        <mat-error *ngIf="formGroup.controls.subDomain.invalid">
+          <span *ngIf="formGroup.controls.subDomain.errors.required">{{'general.required' | translateAsync}}</span>
+          <span *ngIf="formGroup.controls.subDomain.errors.maxlength">{{'general.maxlength' | translateAsync: { x: maxTenancyNameLength } }}</span>
+          <span *ngIf="formGroup.controls.subDomain.errors.pattern">{{'tenant.subDomainPattern' | translateAsync }}</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <!-- subDomain Field -->
+
+    <!-- editionId Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <app-edition-select formControlName="editionId" [placeholder]="'edition.title' | translateAsync"></app-edition-select>
+      </mat-form-field>
+    </div>
+    <!-- editionId Field -->
+
+    <!-- isActive Field -->
+    <div class="col-12 col-md-6 tenant-isActive">
+      <mat-checkbox class="tenant-isActive" formControlName="isActive">{{'tenant.isActive' | translateAsync}}</mat-checkbox>
+    </div>
+    <!-- isActive Field -->
+
+  </div>
+</form>

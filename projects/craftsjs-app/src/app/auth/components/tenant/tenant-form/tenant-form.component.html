@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup" autocomplete="off" (ngSubmit)="changeTenant()" class="form-full-width" id="tenant-form">
+  <!-- name Field -->
+  <mat-form-field appearance="outline">
+    <mat-label>{{'tenant.name' | translateAsync}}</mat-label>
+    <input matInput [placeholder]="'tenant.name' | translateAsync" formControlName="name">
+    <mat-error *ngIf="formGroup.controls.name.invalid">
+      <span *ngIf="formGroup.controls.name.errors.maxlength">{{'general.maxlength' | translateAsync:{ x: 64 } }}</span>
+    </mat-error>
+  </mat-form-field>
+  <span>{{'tenant.leaveEmptyToSwitchToHost' | translateAsync}}</span>
+  <!-- name Field -->
+</form>

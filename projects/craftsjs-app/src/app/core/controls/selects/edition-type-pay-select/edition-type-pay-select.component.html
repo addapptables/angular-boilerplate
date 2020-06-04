@@ -1,0 +1,7 @@
+<mat-select [multiple]="multiple" [disabled]="disabled" [value]="value$ | async" [required]="required"
+(selectionChange)="onChange($event)" (openedChange)="openedChange($event)">
+  <mat-option>--</mat-option>
+  <mat-option [value]="1">{{'general.monthly' | translateAsync}}</mat-option>
+  <mat-option [value]="2">{{'general.biannual' | translateAsync}}</mat-option>
+  <mat-option [value]="3">{{'general.annual' | translateAsync}}</mat-option>
+</mat-select>

@@ -1,0 +1,38 @@
+<form [formGroup]="form" class="login-form" autocomplete="off">
+
+  <!-- userNameOrEmailAddress Field -->
+  <mat-form-field class="login-input" appearance="outline">
+    <mat-label>{{'auth.username' | translateAsync}}</mat-label>
+    <input matInput type="text" formControlName="username" required>
+    <mat-icon matSuffix>profile</mat-icon>
+  </mat-form-field>
+  <!-- userNameOrEmailAddress Field -->
+
+  <!-- password Field -->
+  <mat-form-field class="login-input" appearance="outline">
+    <mat-label>{{'auth.password' | translateAsync}}</mat-label>
+    <input matInput type="password" [placeholder]="'auth.password' | translateAsync" formControlName="password" required>
+    <mat-icon matSuffix>lock</mat-icon>
+  </mat-form-field>
+  <!-- password Field -->
+
+  <!-- rememberClient Field -->
+  <div class="login-remember">
+    <mat-checkbox formControlName="rememberClient">{{ 'auth.remember' | translateAsync }}</mat-checkbox>
+    <a [routerLink]="['/forgot-password']">{{ 'auth.forgotPassword' | translateAsync}}</a>
+  </div>
+  <!-- rememberClient Field -->
+
+  <!-- action login -->
+  <button class="login-button" mat-raised-button color="primary" (click)="login()" [disabled]="!form.valid || (saving$ | async)">
+    {{ "auth.login" | translateAsync }}
+  </button>
+  <!-- action login -->
+
+  <div class="login-create-account">
+    <span>
+      Don't have an account?
+    </span>
+    <a [routerLink]="['/register']">Create an account</a>
+  </div>
+</form>

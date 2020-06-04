@@ -2,11 +2,9 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PlatformLocation, DOCUMENT } from '@angular/common';
 import { map } from 'rxjs/operators';
-import { ConfigurationModel } from '../@redux/configuration/models/configuration.model';
+import { ConfigurationModel } from '../models/configuration.model';
 import { IS_PRODUCTION } from '../tokens';
 import { SubdomainTenancyNameFinder } from '../helpers/subdomain-tenancy-name-finder.helper';
-import { Store } from '@ngrx/store';
-import { ConfigurationLoaded } from '../@redux/configuration/actions/configuration.action';
 
 @Injectable()
 export class InitialConfigurationService {
@@ -19,7 +17,6 @@ export class InitialConfigurationService {
     private readonly isProduction: boolean,
     @Inject(DOCUMENT)
     private readonly document: Document,
-    private readonly store: Store,
   ) { }
 
   get configuration() {
@@ -45,7 +42,6 @@ export class InitialConfigurationService {
             appBaseUrl: baseUrl,
             remoteServiceBaseUrl,
           };
-          this.store.dispatch(new ConfigurationLoaded({ configuration: this.configurationModel }));
           return this.configurationModel;
         } else {
           const baseUrl = result.appBaseUrl.replace(result.tenancyNamePlaceHolderInUrl, tenancyName);
@@ -54,8 +50,8 @@ export class InitialConfigurationService {
             ...result,
             appBaseUrl: baseUrl,
             remoteServiceBaseUrl,
+            tenant: tenancyName,
           };
-          this.store.dispatch(new ConfigurationLoaded({ configuration: this.configurationModel }));
           return this.configurationModel;
         }
       })

@@ -1,0 +1,36 @@
+<div class="table-container">
+    <div class="table-loading" *ngIf="loading$ | async">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div class="table-responsive-vertical" perfectScrollbar>
+        <mat-table [dataSource]="dataSource" class="table">
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null"
+                  [checked]="selection.hasValue() && isAllSelected()"
+                  [indeterminate]="selection.hasValue() && !isAllSelected()">
+                </mat-checkbox>
+            </mat-header-cell>
+            <mat-cell class="text-light-gray" *matCellDef="let roleOrganizationUnit">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle({ id: roleOrganizationUnit.id, pageIndex: paginator.pageIndex}) : null"
+                            [checked]="selection.isSelected({ id: roleOrganizationUnit.id, pageIndex: paginator.pageIndex})">
+              </mat-checkbox>
+            </mat-cell>
+          </ng-container>
+
+            <!-- name Column -->
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef>{{'role.name' | translateAsync}}</mat-header-cell>
+                <mat-cell *matCellDef="let roleOrganizationUnit" title="{{'role.name' | translateAsync}}"> {{roleOrganizationUnit.name}} </mat-cell>
+            </ng-container>
+            <!-- name Column -->
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSize]="5" hidePageSize="true"></mat-paginator>
+    </div>
+</div>

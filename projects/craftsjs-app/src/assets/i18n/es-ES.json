@@ -1,0 +1,43 @@
+{
+  "general": {
+    "save": "Guardar",
+    "close": "Cerrar",
+    "required": "El campo es requerido",
+    "maxlength": "El campo no puede tener más de {{x}} caracteres",
+    "ok": "Ok",
+    "actions": "Acciones",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "saveSuccessFully": "Se ha guardado de forma exitosa",
+    "deletesuccessfully": "Eliminado de forma correcta",
+    "delete": "Eliminar",
+    "cancel": "Cancelar",
+    "yes": "Si",
+    "no": "No",
+    "searcher": "Buscador",
+    "search": "Buscar",
+    "clear": "Limpiar",
+    "isEmail": "El formato no es correcto",
+    "file": "Avatar",
+    "monthly": "Mensual",
+    "biannual": "Semestral",
+    "annual": "Anual",
+    "select": "Seleccione",
+    "emptyData": "No se encontraron resultados",
+    "edit": "Editar",
+    "add": "Añadir",
+    "branchoffice": "Sede",
+    "listEmpty": "No hay datos para mostrar",
+    "export": "Exportar"
+  },
+  "user": {
+    "credentialsError": "Usuario o contraseña incorrectos"
+  },
+  "auth": {
+    "login": "Iniciar sesión",
+    "password": "Contraseña",
+    "username": "Usuario",
+    "remember": "Recordar",
+    "forgotPassword": "¿Olvidaste tu contraseña?"
+  }
+}

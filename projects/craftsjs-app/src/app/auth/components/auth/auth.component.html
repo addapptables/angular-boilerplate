@@ -1,18 +1,25 @@
-
+<app-progress-bar class="auth-progress-bar"></app-progress-bar>
 <div class="auth">
-  <div class="auth-content">
-    <addapptable-card>
-      <addapptable-header>
-        <addapptable-card-header-oval>
-          <addapptable-card-title>
-            <mat-icon matSuffix>email</mat-icon>
-            <span>Crafts</span>
-          </addapptable-card-title>
-        </addapptable-card-header-oval>
-      </addapptable-header>
-      <addapptable-card-body>
-
-      </addapptable-card-body>
-    </addapptable-card>
+  <div class="auth-content" perfectScrollbar>
+    <card>
+      <card-header>
+        <card-header-oval>
+          <card-title>
+            <mat-icon matSuffix>lock</mat-icon>
+            <span>Craftsjs</span>
+            <app-translate></app-translate>
+          </card-title>
+        </card-header-oval>
+      </card-header>
+      <card-body>
+        <div class="auth-tenant">
+            <a *ngIf="showTenantChange()" (click)="openModalTenant()">{{'tenant.change' | translateAsync}}</a>
+            <p class="login-tenat-name-align" *ngIf="tenant$ | async as tenant">
+                ({{tenant.name}})
+            </p>
+        </div>
+        <app-login-form></app-login-form>
+      </card-body>
+    </card>
   </div>
 </div>

@@ -1,0 +1,15 @@
+<button *ngIf="selectLanguage$ | async; let selectLanguage" mat-button class="language-button" [matMenuTriggerFor]="languageMenu">
+  <div class="translate">
+    <img [src]="'assets/images/countries/'+selectLanguage.country+'.png'">
+    <span class="translate-text-uppercase">{{selectLanguage.id}}</span>
+  </div>
+</button>
+
+<mat-menu #languageMenu="matMenu" [overlapTrigger]="false">
+  <button type="button" mat-menu-item *ngFor="let lang of languages$ | async" (click)="changeLanguage(lang)">
+    <div class="translate">
+      <img [src]="'assets/images/countries/'+lang.country+'.png'">
+      <span>{{ lang.title | translateAsync }}</span>
+    </div>
+  </button>
+</mat-menu>

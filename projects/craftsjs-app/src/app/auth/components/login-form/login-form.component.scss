@@ -1,0 +1,62 @@
+
+.login {
+    &-input {
+        width: 100%;
+    }
+    &-form{
+        max-width: 500px;
+        &>mat-form-field{
+            padding-top: 1em;
+        }
+        &>button{
+            width: 100%;
+        }
+    }
+    &-remember {
+        justify-content: space-between;
+        display: flex;
+    }
+    &-create-account{
+        display: grid;
+        justify-content: center;
+        margin-top: 1em;
+        row-gap: 0.5em;
+        & > a {
+            justify-content: center;
+            display: flex;
+        }
+    }
+    &-other-buttons{
+        flex-direction: column;
+        box-sizing: border-box;
+        display: flex;
+        max-width: 100%;
+        align-items: center;
+        margin: 1em;
+        &>button{
+            margin: 0.5em;
+            width: 70%;
+        }
+    }
+    &-separator{
+        color: rgba(0,0,0,.12);
+        font-size: 1.5em;
+        font-weight: 600;
+        margin: 24px auto;
+        position: relative;
+        overflow: hidden;
+        width: 100px;
+        text-align: center;
+    }
+    &-google {
+        background-color: #d73d32 !important;
+        color: white !important
+    }
+    &-facebook{
+        background-color: #3f5c9a !important;
+        color: white !important;
+    }
+    &-button{
+      margin-top: 1em;
+    }
+}

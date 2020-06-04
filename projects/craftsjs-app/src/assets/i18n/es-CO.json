@@ -1,0 +1,113 @@
+{
+  "general": {
+    "save": "Guardar",
+    "close": "Cerrar",
+    "required": "El campo es requerido",
+    "maxlength": "El campo no puede tener más de {{x}} caracteres",
+    "ok": "Ok",
+    "actions": "Acciones",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "saveSuccessFully": "Se ha guardado de forma exitosa",
+    "deletesuccessfully": "Eliminado de forma correcta",
+    "delete": "Eliminar",
+    "cancel": "Cancelar",
+    "yes": "Si",
+    "no": "No",
+    "searcher": "Buscador",
+    "search": "Buscar",
+    "clear": "Limpiar",
+    "isEmail": "El formato no es correcto",
+    "file": "Avatar",
+    "monthly": "Mensual",
+    "biannual": "Semestral",
+    "annual": "Anual",
+    "select": "Seleccione",
+    "emptyData": "No se encontraron resultados",
+    "edit": "Editar",
+    "add": "Añadir",
+    "branchoffice": "Sede",
+    "listEmpty": "No hay datos para mostrar",
+    "export": "Exportar"
+  },
+  "administration": {
+    "title": "Administración"
+  },
+  "user": {
+    "title": "Usuarios",
+    "credentialsError": "Usuario o contraseña incorrectos",
+    "userName": "Nombre de usuario",
+    "fullName": "Nombres y apellidos",
+    "emailAddress": "Dirección de correo",
+    "phoneNumber": "Números",
+    "isActive": "¿Está activo?",
+    "areYouSure": "¿Está seguro de eliminar el usuario {{title}}?",
+    "create": "Crear usuario",
+    "name": "Nombre",
+    "surname": "Apellido",
+    "currentPassword": "Contraseña actual",
+    "newPassword": "Nueva contraseña",
+    "repeatPassword": "Repetir contraseña",
+    "passwordDotNotMatch": "La contraseña actual no coincide"
+  },
+  "auth": {
+    "login": "Iniciar sesión",
+    "password": "Contraseña",
+    "username": "Usuario",
+    "remember": "Recordar",
+    "forgotPassword": "¿Olvidaste tu contraseña?"
+  },
+  "edition": {
+    "title": "Ediciones",
+    "name": "Nombre",
+    "isFree": "Gratis",
+    "price": "Precio",
+    "editionType": "Tipo",
+    "trialDayCount": "Días de prueba",
+    "numberOfUsers": "Número de usuarios",
+    "create": "Crear edición",
+    "areYouSure": "¿Está seguro de eliminar la edición {{title}}?",
+    "existsName": "Ya existe una edición con el nombre digitado"
+  },
+  "profile": {
+    "viewProfile": "Ver perfil",
+    "closeSession": "Cerrar sesión",
+    "basicInfo": "Información básica",
+    "updateInfo": "Actualizar perfil",
+    "changePassword": "Cambiar contraseña"
+  },
+  "translate": {
+    "english": "Inglés",
+    "spanish": "Español"
+  },
+  "role": {
+    "title": "Roles",
+    "name": "Nombre",
+    "create": "Crear rol",
+    "areYouSure": "¿Está seguro de eliminar el rol {{title}}?",
+    "fillGeneralInformation": "Rellenar información rol",
+    "fillPermissions": "Rellenar permisos"
+  },
+  "tenant": {
+    "title": "Empresas",
+    "name": "Nombre",
+    "subDomain": "Sub dominio",
+    "isActive": "¿Está activo?",
+    "create": "Crear empresa",
+    "areYouSure": "¿Está seguro de eliminar la empresa {{title}}?",
+    "change": "Cambiar de empresa",
+    "leaveEmptyToSwitchToHost": "Dejar vacío para entrar en el host",
+    "tenantIsNotActive": "Empresa no disponible"
+  },
+  "organizationUnit": {
+    "title": "Unidades organizacionales",
+    "name": "Nombre",
+    "create": "Crear unidad organizacional",
+    "addSubUnit": "Añadir sub unidad organizacional",
+    "areYouSure": "¿Está seguro de eliminar la unidad organizacional {{title}}?",
+    "associations": "Asociaciones",
+    "areYouSureDeleteRole": "¿Está seguro de eliminar el role {{title}}?",
+    "selectOrganizationToViewRoles": "Seleccione una unidad organizacional para ver los roles",
+    "associateRole": "Añadir rol"
+  }
+}

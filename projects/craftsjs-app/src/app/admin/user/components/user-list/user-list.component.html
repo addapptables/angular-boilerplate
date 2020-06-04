@@ -1,0 +1,82 @@
+<div class="table-container">
+    <div class="table-loading" *ngIf="dataSource.loading$ | async">
+        <mat-spinner></mat-spinner>
+    </div>
+    <app-user-list-search (search)="search($event)"></app-user-list-search>
+    <div class="table-responsive-vertical" perfectScrollbar>
+        <mat-table [dataSource]="dataSource" class="table">
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <mat-header-cell *matHeaderCellDef>
+                {{'general.actions' | translateAsync}}
+              </mat-header-cell>
+              <mat-cell class="text-light-gray" *matCellDef="let user">
+                <button mat-icon-button (click)="editUser(user)" *ngIf="'Page.Administration.User.Update' | isGranted">
+                  <mat-icon suffix>edit</mat-icon>
+                </button>
+                <button *ngIf="('Page.Administration.User.Delete' | isGranted) && !user.isStatic" mat-icon-button (click)="deleteUser(user)">
+                  <mat-icon suffix>delete</mat-icon>
+                </button>
+              </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="extendColumn">
+              <mat-header-cell *matHeaderCellDef>
+                {{'general.actions' | translateAsync}}
+              </mat-header-cell>
+              <mat-cell class="text-light-gray" *matCellDef="let user">
+                <ng-content *ngTemplateOutlet="templateRef; context:{user: user}" [ngIf]="templateRef"></ng-content>
+              </mat-cell>
+            </ng-container>
+
+            <!-- userName Column -->
+            <ng-container matColumnDef="userName">
+                <mat-header-cell *matHeaderCellDef>{{'user.userName' | translateAsync}}</mat-header-cell>
+                <mat-cell *matCellDef="let user" title="{{'user.userName' | translateAsync}}"> {{user.userName}} </mat-cell>
+            </ng-container>
+            <!-- userName Column -->
+
+            <!-- fullName Column -->
+            <ng-container matColumnDef="fullName">
+                <mat-header-cell *matHeaderCellDef>{{'user.fullName' | translateAsync}}</mat-header-cell>
+                <mat-cell *matCellDef="let user" title="{{'user.fullName' | translateAsync}}"> {{user.name + ' ' + user.surname}} </mat-cell>
+            </ng-container>
+            <!-- fullName Column -->
+
+            <!-- emailAddress Column -->
+            <ng-container matColumnDef="emailAddress">
+                <mat-header-cell *matHeaderCellDef>{{'user.emailAddress' | translateAsync}}</mat-header-cell>
+                <mat-cell *matCellDef="let user" title="{{'user.emailAddress' | translateAsync}}"> {{user.emailAddress}} </mat-cell>
+            </ng-container>
+            <!-- emailAddress Column -->
+
+            <!-- phoneNumber Column -->
+            <ng-container matColumnDef="phoneNumber">
+                <mat-header-cell *matHeaderCellDef>{{'user.phoneNumber' | translateAsync}}</mat-header-cell>
+                <mat-cell *matCellDef="let user" title="{{'user.phoneNumber' | translateAsync}}"> {{user.phoneNumber}} </mat-cell>
+            </ng-container>
+            <!-- phoneNumber Column -->
+
+            <!-- isActive Column -->
+            <ng-container matColumnDef="isActive">
+                <mat-header-cell *matHeaderCellDef>{{'user.isActive' | translateAsync}}</mat-header-cell>
+                <mat-cell *matCellDef="let user" title="{{'user.isActive' | translateAsync}}">
+                  <ng-container [ngSwitch]="user.isActive">
+                    <span *ngSwitchCase="true">
+                      {{'general.yes' | translateAsync}}
+                    </span>
+                    <span *ngSwitchCase="false">
+                      {{'general.no' | translateAsync}}
+                    </span>
+                  </ng-container>
+                </mat-cell>
+            </ng-container>
+            <!-- isActive Column -->
+
+            <mat-header-row *matHeaderRowDef="displayedColumns | isGrantedActionColumn: ['Page.Administration.User.Update', 'Page.Administration.User.Delete']"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns | isGrantedActionColumn: ['Page.Administration.User.Update', 'Page.Administration.User.Delete'];"></mat-row>
+        </mat-table>
+        <mat-paginator [length]="dataSource.total$ | async" [pageSize]="size" hidePageSize="true"></mat-paginator>
+    </div>
+</div>

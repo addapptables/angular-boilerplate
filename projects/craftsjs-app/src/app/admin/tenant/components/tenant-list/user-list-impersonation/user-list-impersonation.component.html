@@ -1,0 +1,21 @@
+
+<craftsjs-modal>
+  <modal-header>
+    <h3 class="text-accent">{{'tenant.impersonation' | translateAsync}}</h3>
+    <button mat-icon-button (click)="close()">
+      <mat-icon suffix>close</mat-icon>
+    </button>
+  </modal-header>
+  <modal-body>
+    <app-user-list [displayedColumns]="['extendColumn', 'fullName', 'emailAddress']" [tenantId]="tenantId" [size]="5">
+      <ng-template let-user="user">
+        <button type="button" mat-icon-button (click)="impersonation(user)" [disabled]="saving$ | async">
+          <mat-icon suffix>verified_user</mat-icon>
+        </button>
+      </ng-template>
+    </app-user-list>
+  </modal-body>
+  <modal-footer>
+    <button type="button" mat-raised-button (click)="close()">{{'general.close' | translateAsync}}</button>
+  </modal-footer>
+</craftsjs-modal>

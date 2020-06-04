@@ -1,0 +1,14 @@
+<div class="page d-flex flex-row justify-content-start align-items-start">
+    <app-menu class="layout-menu d-flex"></app-menu>
+    <div class="layout-main d-flex flex-column flex-wrap justify-content-start align-content-start">
+        <app-progress-bar></app-progress-bar>
+        <div class="layout-col layout-col-navbar">
+            <app-toolbar></app-toolbar>
+        </div>
+        <div perfectScrollbar class="layout-col layout-col-router">
+            <app-container>
+                <router-outlet></router-outlet>
+            </app-container>
+        </div>
+    </div>
+</div>

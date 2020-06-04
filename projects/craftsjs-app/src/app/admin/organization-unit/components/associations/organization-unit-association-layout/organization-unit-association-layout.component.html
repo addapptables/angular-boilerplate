@@ -1,0 +1,24 @@
+<card>
+  <card-header>
+    <card-header-linear>
+      <card-title>
+        <i class="fas fa-sitemap"></i>
+        <h4>{{'organizationUnit.associations' | translateAsync}}</h4>
+      </card-title>
+    </card-header-linear>
+  </card-header>
+  <mat-divider></mat-divider>
+  <card-body>
+    <mat-tab-group>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="organization-unit-tab-icon">supervised_user_circle</mat-icon>
+          {{'role.title' | translateAsync}}
+        </ng-template>
+        <div class="tab-content">
+          <app-role-organization-unit-list [setOrganizationUnitId]="organizationUnitId"></app-role-organization-unit-list>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </card-body>
+</card>

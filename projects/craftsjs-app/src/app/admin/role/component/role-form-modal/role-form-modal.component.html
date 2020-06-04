@@ -1,0 +1,11 @@
+<craftsjs-modal>
+  <modal-header>
+    <h3 class="text-accent">{{'role.create' | translateAsync }}</h3>
+    <button mat-icon-button (click)="close()">
+      <mat-icon suffix>close</mat-icon>
+    </button>
+  </modal-header>
+  <modal-body>
+    <app-role-form [roleDto]="roleDto" (save)="close()"></app-role-form>
+  </modal-body>
+</craftsjs-modal>

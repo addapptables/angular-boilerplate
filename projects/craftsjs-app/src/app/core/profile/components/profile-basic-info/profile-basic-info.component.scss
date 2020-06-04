@@ -1,0 +1,32 @@
+.profile {
+    padding: 5px 0;
+    margin: 0;
+    text-align: center;
+    &-pic {
+        padding: 8px;
+        display: inline-block;
+        margin: 2rem auto;
+        border-radius: 100%;
+        & > img{
+            text-align: center;
+            max-width: 130px!important;
+            margin: 0 auto!important;
+            border-radius: 100%;
+            border: 2px solid #f4f5f8;
+        }
+    }
+    &-details {
+        text-align: start;
+        display: grid;
+        &-field {
+            display: grid;
+            grid-template-columns: minmax(max-content, max-content) 1fr;
+            text-align: start;
+            align-items: center;
+            column-gap: 0.5em;
+            > span {
+                word-break: break-word;
+            }
+        }
+    }
+}

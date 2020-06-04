@@ -1,0 +1,113 @@
+{
+  "general": {
+    "save": "Save",
+    "close": "Close",
+    "required": "Field is required",
+    "maxlength": "The field cannot have more than {{x}} characters",
+    "ok": "Ok",
+    "actions": "Actions",
+    "next": "Next",
+    "back": "Back",
+    "saveSuccessFully": "Saved Successfully",
+    "deletesuccessfully": "Removed Successfully",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "yes": "Yes",
+    "no": "No",
+    "searcher": "Searcher",
+    "search": "Search",
+    "clear": "Clean",
+    "isEmail": "The format is not correct",
+    "file": "File",
+    "monthly": "Monthly",
+    "biannual": "Biannual",
+    "annual": "Annual",
+    "select": "Select",
+    "emptyData": "No results found",
+    "edit": "Edit",
+    "add": "Add",
+    "branchoffice": "Branch office",
+    "listEmpty": "No results found",
+    "export": "Export"
+  },
+  "administration": {
+    "title": "Administration"
+  },
+  "user": {
+    "title": "Users",
+    "credentialsError": "Wrong Username or Password",
+    "userName": "User name",
+    "fullName": "Full name",
+    "emailAddress": "Email address",
+    "phoneNumber": "Phone number",
+    "isActive": "Is active?",
+    "areYouSure": "Are you sure delete user {{title}}?",
+    "create": "Create user",
+    "name": "Name",
+    "surname": "Surname",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "repeatPassword": "Repeat password",
+    "passwordDotNotMatch": "Current password dot not match with your password"
+  },
+  "auth": {
+    "login": "Login",
+    "password": "Password",
+    "username": "Username",
+    "remember": "Remember",
+    "forgotPassword": "Forgot your password?"
+  },
+  "edition": {
+    "title": "Editions",
+    "name": "Name",
+    "isFree": "Is free",
+    "price": "Price",
+    "editionType": "Edition type",
+    "trialDayCount": "Trial day count",
+    "numberOfUsers": "Number of users",
+    "create": "Create edition",
+    "areYouSure": "Are you sure delete edition {{title}}?",
+    "existsName": "Edition already exists"
+  },
+  "profile": {
+    "viewProfile": "View profile",
+    "closeSession": "Close session",
+    "basicInfo": "Basic info",
+    "updateInfo": "Update profile",
+    "changePassword": "Change password"
+  },
+  "translate": {
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "role": {
+    "title": "Roles",
+    "name": "Name",
+    "create": "Create role",
+    "areYouSure": "Are you sure delete role {{title}}?",
+    "fillGeneralInformation": "Fill role information",
+    "fillPermissions": "Fill permissions"
+  },
+  "tenant": {
+    "title": "Tenants",
+    "name": "Name",
+    "subDomain": "Sub domain",
+    "isActive": "Is active?",
+    "create": "Create tenant",
+    "areYouSure": "Are you sure delete tenant {{title}}?",
+    "change": "Change tenant",
+    "leaveEmptyToSwitchToHost": "Leave Empty To Switch To Host",
+    "tenantIsNotActive": "Tenant not found"
+  },
+  "organizationUnit": {
+    "title": "Organization units",
+    "name": "Name",
+    "create": "Create organization unit",
+    "addSubUnit": "Add child organization",
+    "areYouSure": "Are you sure delete organization unit {{title}}?",
+    "associations": "Associations",
+    "areYouSureDeleteRole": "Are you sure delete role {{title}}?",
+    "selectOrganizationToViewRoles": "Select one organization unit to view the roles",
+    "associateRole": "Add role"
+  }
+}

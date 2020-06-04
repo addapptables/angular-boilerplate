@@ -1,0 +1,23 @@
+<mat-toolbar class="toolbar d-flex flex-row">
+  <div class="d-flex flex-row justify-content-between align-items-center">
+    <button-mobile></button-mobile>
+    <div class="toolbar-quick-access d-none d-md-flex">
+      <span *ngIf="tenant$ | async as tenant">
+        <div class="toolbar-tenant-subscriptionEndDate" *ngIf="tenant.subscriptionEndDate && tenant.editionId">
+          <span>{{'tenant.subscriptionEndDate' | translateAsync}}:</span>
+          <span>{{tenant.subscriptionEndDate | momentFormat: 'DD MMMM YYYY'}}</span>
+          <span class="toolbar-tenant-indicator" [ngClass]="{'bg-danger':tenant.isSubscriptionExpired,'bg-success':!tenant.isSubscriptionExpired}">
+          </span>
+        </div>
+      </span>
+    </div>
+    <div class="toolbar-actions align-items-center">
+      <button *ngIf="isImpersonatedLogin$ | async" type="button" mat-button (click)="backToMyAccount()" [disabled]="saving$ | async">
+        <mat-icon matSuffix>arrow_back</mat-icon>
+        {{'user.backToMyAccount' | translateAsync}}
+      </button>
+      <app-profile></app-profile>
+      <app-translate></app-translate>
+    </div>
+  </div>
+</mat-toolbar>

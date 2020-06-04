@@ -1,0 +1,34 @@
+<div class="table-container">
+    <div class="table-loading" *ngIf="dataSource.loading$ | async">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div class="table-responsive-vertical" perfectScrollbar>
+        <mat-table [dataSource]="dataSource" class="table">
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>
+              {{'general.actions' | translateAsync}}
+            </mat-header-cell>
+            <mat-cell class="text-light-gray" *matCellDef="let role">
+              <button mat-icon-button (click)="editRole(role)" *ngIf="'Page.Administration.Role.Update' | isGranted">
+                <mat-icon suffix>edit</mat-icon>
+              </button>
+              <button *ngIf="('Page.Administration.Role.Delete' | isGranted) && !role.isStatic" mat-icon-button (click)="deleteRole(role)">
+                <mat-icon suffix>delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+            <!-- name Column -->
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef>{{'role.name' | translateAsync}}</mat-header-cell>
+                <mat-cell *matCellDef="let role" title="{{'role.name' | translateAsync}}"> {{role.name}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="dataSource.displayedColumns | isGrantedActionColumn: ['Page.Administration.Role.Update', 'Page.Administration.Role.Delete']"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: dataSource.displayedColumns | isGrantedActionColumn: ['Page.Administration.Role.Update', 'Page.Administration.Role.Delete'];"></mat-row>
+        </mat-table>
+        <mat-paginator [length]="dataSource.total$ | async" [pageSize]="10" hidePageSize="true"></mat-paginator>
+    </div>
+</div>

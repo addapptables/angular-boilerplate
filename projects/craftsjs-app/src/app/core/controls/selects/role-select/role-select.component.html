@@ -1,0 +1,4 @@
+  <mat-select [placeholder]="'role.title' | translateAsync" [multiple]="multiple" [disabled]="disabled" [value]="value$ | async" [required]="required"
+  (selectionChange)="onChange($event)" (openedChange)="openedChange($event)">
+    <mat-option *ngFor="let role of roles$ | async" [value]="role.id">{{role.name}}</mat-option>
+  </mat-select>

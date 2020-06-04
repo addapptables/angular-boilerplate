@@ -1,0 +1,43 @@
+<card>
+  <card-header>
+    <card-header-oval>
+      <card-title>
+        <h4>{{'profile.basicInfo' | translateAsync}}</h4>
+      </card-title>
+    </card-header-oval>
+  </card-header>
+  <card-body>
+    <div class="profile">
+      <div class="profile-pic" *ngIf="result$ | async as profile">
+        <img *ngIf="profile.profilePictureBase64" [src]="profile.profilePictureBase64">
+        <img *ngIf="!profile.profilePictureBase64" src="assets/images/profile/default-profile-picture.png">
+      </div>
+      <div class="details" *ngIf="result$ | async as profile">
+        <div class="profile-details-field">
+          <h4>
+            {{'user.userName' | translateAsync}}:
+          </h4>
+          <span>
+            {{profile.name}}
+          </span>
+        </div>
+        <div class="profile-details-field">
+          <h4>
+            {{'user.fullName' | translateAsync}}:
+          </h4>
+          <span>
+            {{profile.name}} - {{profile.surname}}
+          </span>
+        </div>
+        <div class="profile-details-field">
+          <h4>
+            {{'user.emailAddress' | translateAsync}}:
+          </h4>
+          <span>
+            {{ profile.emailAddress }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </card-body>
+</card>

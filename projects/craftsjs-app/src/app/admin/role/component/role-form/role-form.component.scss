@@ -1,0 +1,8 @@
+.role-form {
+    &-permission-tree{
+            position: relative;
+            display: flex;
+            max-height: 52vh;
+            overflow: auto;
+    }
+}

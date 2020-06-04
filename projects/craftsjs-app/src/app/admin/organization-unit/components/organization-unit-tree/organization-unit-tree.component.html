@@ -1,0 +1,62 @@
+<div class="tree-container" [ngClass]="{'tree-loading': loading$ | async}">
+    <div class="table-loading" *ngIf="loading$ | async">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div class="tree-empty-message" *ngIf="!(loading$ | async) && (isEmpty$ | async)">
+      <h4>{{'general.emptyData' | translateAsync}}</h4>
+    </div>
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding (contextmenu)="onContextMenu($event, node)">
+        <button type="button" mat-icon-button matTreeNodeToggle>
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+        <button type="button" mat-icon-button matTreeNodeToggle>
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'folder_open' : 'folder'}}
+          </mat-icon>
+        </button>
+        <span class="tree-display-name" [ngClass]="{'selected': this.selection.isSelected(node.id)}" (click)="onSelectOrganization(node)">{{node.name}}</span>
+      </mat-tree-node>
+
+      <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding (contextmenu)="onContextMenu($event, node)">
+        <button type="button" mat-icon-button  [attr.aria-label]="'toggle ' + node.displayName" matTreeNodeToggle>
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+        <button type="button" mat-icon-button matTreeNodeToggle>
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'folder_open' : 'folder'}}
+          </mat-icon>
+        </button>
+        <span class="tree-display-name" [ngClass]="{'selected': this.selection.isSelected(node.id)}" (click)="onSelectOrganization(node)">
+          {{node.name}}
+        </span>
+      </mat-tree-node>
+    </mat-tree>
+
+    <div style="position: fixed"
+        [style.left]="contextMenuPosition.x"
+        [style.top]="contextMenuPosition.y"
+        [matMenuTriggerFor]="contextMenu">
+    </div>
+
+    <mat-menu #contextMenu="matMenu">
+      <ng-template matMenuContent let-organizationUnit="organizationUnit">
+        <button type="button" mat-menu-item (click)="addSubUnit(organizationUnit)">
+          <i class="fas fa-sitemap"></i>
+          {{'organizationUnit.addSubUnit' | translateAsync}}
+        </button>
+        <button type="button" mat-menu-item (click)="editOrganizationUnit(organizationUnit)">
+          <mat-icon suffix>edit</mat-icon>
+          {{'general.edit' | translateAsync}}
+        </button>
+        <button type="button" mat-menu-item (click)="deleteOrganizationUnit(organizationUnit)">
+          <mat-icon suffix>delete</mat-icon>
+          {{'general.delete' | translateAsync}}
+        </button>
+      </ng-template>
+    </mat-menu>
+</div>

@@ -2,6 +2,11 @@
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../../dist/craftsjs/boilerplate",
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "ngx-cookie-service": "ngx-cookie-service",
+      "@craftsjs/alert": "craftsjs-alert",
+      "angular-l10n": "angular-l10n"
+    }
   }
 }

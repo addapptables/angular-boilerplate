@@ -4,7 +4,7 @@ import { timer } from 'rxjs';
 import { appInitializerFactory } from '../lib/app-initializer-factory';
 import { InjectionToken, Injector } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { ConfigurationModel } from '../lib/@redux/configuration/models/configuration.model';
+import { ConfigurationModel } from '../lib/models/configuration.model';
 
 
 describe('AppInitializerFactory', () => {

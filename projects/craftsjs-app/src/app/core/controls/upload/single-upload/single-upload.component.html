@@ -1,0 +1,9 @@
+<div class="file-field input-field">
+  <div class="btn">
+    <button [disabled]="loading$ | async" mat-raised-button>{{title | translateAsync}}</button>
+    <input [disabled]="loading$ | async" type="file" (change)="changeFile($event)" accept="image/*" [multiple]="multiple">
+  </div>
+  <div class="file-path-wrapper">
+    <input type="text" class="file-input simple-upload-file-text" [(ngModel)]="name">
+  </div>
+</div>
