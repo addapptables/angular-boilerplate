@@ -4,6 +4,9 @@ import { UserDto } from '@redux/user/models/user-dto.model';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as UserActions from '@redux/user/actions/user.actions';
+import { AuthService } from '@craftsjs/boilerplate';
+import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list-impersonation',
@@ -22,7 +25,9 @@ export class UserListImpersonationComponent implements OnDestroy {
   constructor(
     private _dialogRef: MatDialogRef<UserListImpersonationComponent>,
     private _store: Store,
-    @Inject(MAT_DIALOG_DATA) public tenantId: number
+    @Inject(MAT_DIALOG_DATA) public tenantId: string,
+    private _authService: AuthService,
+    private _router: Router
   ) { }
 
   close() {
@@ -31,25 +36,14 @@ export class UserListImpersonationComponent implements OnDestroy {
 
   impersonation(user: UserDto) {
     console.log(user);
-    // this.saveSubject.next(true);
-    // this._accountService.impersonate({ UserId: user.id, tenantId: this.tenantId }).pipe(
-    //   takeUntil(this.unsubscribeAll),
-    //   switchMap((result) => {
-    //     this._authService.setTenantCookie(this.tenantId);
-    //     return this._authService.impersonatedAuthenticate(result.impersonationToken).pipe(
-    //       switchMap(() => {
-    //         return this._sessionService.init().pipe(
-    //           tap(() => {
-    //             this.saveSubject.next(false);
-    //             this.close();
-    //             this._router.navigate(['admin/profile']);
-    //           })
-    //         );
-    //       })
-    //     );
-    //   }
-    //   )
-    // ).subscribe();
+    this.saveSubject.next(true);
+    this._authService.impersonatedAuthenticate({ userId: user.id, tenantImpersonationId: this.tenantId }).pipe(
+      takeUntil(this.unsubscribeAll)
+    ).subscribe(() => {
+      this.saveSubject.next(false);
+      this.close();
+      this._router.navigate(['admin/profile']);
+    });
   }
 
   ngOnDestroy(): void {

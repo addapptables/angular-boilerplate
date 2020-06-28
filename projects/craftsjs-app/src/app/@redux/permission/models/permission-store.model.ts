@@ -1,7 +1,8 @@
+import { EntityState } from '@ngrx/entity';
 import { PermissionDto } from './permission-dto.model';
 
-export class PermissionStoreModel {
+export interface PermissionStoreModel extends EntityState<PermissionDto> {
     loading: boolean;
-    permissions: PermissionDto[];
+    total: number;
 }
 

@@ -1,12 +1,17 @@
+import { createEntityAdapter, EntityAdapter } from '@ngrx/entity';
+import { Store, Action } from '@craftsjs/ngrx-action';
 import { PermissionStoreModel } from '../models/permission-store.model';
 import * as PermissionActions from '../actions/permission.actions';
-import { Store, Action } from '@craftsjs/ngrx-action';
+import { PermissionDto } from '../models/permission-dto.model';
 
+export const adapter: EntityAdapter<PermissionDto> = createEntityAdapter<PermissionDto>();
 
-@Store<PermissionStoreModel>({
+const initialState = adapter.getInitialState({
     loading: false,
-    permissions: []
-})
+    total: 0
+});
+
+@Store<PermissionStoreModel>(initialState)
 export class PermissionStore {
 
     @Action(PermissionActions.loadPermissions)
@@ -16,7 +21,15 @@ export class PermissionStore {
 
     @Action(PermissionActions.permissionsLoaded)
     permissionsLoaded(state: PermissionStoreModel, { payload: { permissions } }) {
-        return { ...state, permissions, loading: false };
+        return adapter.upsertMany<PermissionStoreModel>(permissions, {
+            ...state,
+            loading: false,
+            total: permissions.length
+        });
     }
 
 }
+
+export const {
+    selectAll
+} = adapter.getSelectors();

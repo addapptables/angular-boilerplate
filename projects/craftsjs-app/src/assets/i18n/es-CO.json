@@ -48,7 +48,9 @@
     "currentPassword": "Contraseña actual",
     "newPassword": "Nueva contraseña",
     "repeatPassword": "Repetir contraseña",
-    "passwordDotNotMatch": "La contraseña actual no coincide"
+    "passwordDotNotMatch": "La contraseña actual no coincide",
+    "existsUserName": "Ya existe el nombre de usuario",
+    "existsEmailAddress": "Ya existe el email digitado"
   },
   "auth": {
     "login": "Iniciar sesión",
@@ -86,7 +88,8 @@
     "create": "Crear rol",
     "areYouSure": "¿Está seguro de eliminar el rol {{title}}?",
     "fillGeneralInformation": "Rellenar información rol",
-    "fillPermissions": "Rellenar permisos"
+    "fillPermissions": "Rellenar permisos",
+    "existsName": "Ya existe un role con el nombre digitado"
   },
   "tenant": {
     "title": "Empresas",
@@ -108,6 +111,7 @@
     "associations": "Asociaciones",
     "areYouSureDeleteRole": "¿Está seguro de eliminar el role {{title}}?",
     "selectOrganizationToViewRoles": "Seleccione una unidad organizacional para ver los roles",
-    "associateRole": "Añadir rol"
+    "associateRole": "Añadir rol",
+    "existsName": "ya existe el nombre digitado"
   }
 }

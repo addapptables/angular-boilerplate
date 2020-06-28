@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, ContentChild, TemplateRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ContentChild, TemplateRef, OnInit } from '@angular/core';
 import { UserDataSourceService } from '../../services/user-data-source.service';
 import { GetUserDto } from '@redux/user/models/get-user-dto.model';
 import { Store } from '@ngrx/store';
@@ -17,7 +17,7 @@ import { ListComponentBase } from '../../../../shared/list/list-component-base';
     UserActionService
   ]
 })
-export class UserListComponent extends ListComponentBase<GetUserDto> {
+export class UserListComponent extends ListComponentBase<GetUserDto> implements OnInit {
 
   @ContentChild(TemplateRef, { static: true }) templateRef: TemplateRef<any>;
 
@@ -36,7 +36,19 @@ export class UserListComponent extends ListComponentBase<GetUserDto> {
     this.displayedColumns = userDataSourceService.displayedColumns;
   }
 
+  ngOnInit() {
+    if(this.tenantId !== undefined) {
+      const filter = Object.assign({}, this.filter.getValue(), {tenantId: this.tenantId});
+      this.filter.next({ ...filter });
+    }
+    super.ngOnInit()
+  }
+
   search(filter: GetUserDto) {
+    if(this.tenantId !== undefined) {
+      const filter = Object.assign({}, this.filter.getValue(), {tenantId: this.tenantId});
+      this.filter.next({ ...filter });
+    }
     this.filter.next({ ...filter });
     this._store.dispatch(UserActions.userClearStore());
   }

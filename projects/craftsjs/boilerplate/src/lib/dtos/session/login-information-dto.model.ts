@@ -8,4 +8,6 @@ export class LoginInformationDto {
 
   tenant?: TenantDto;
 
+  impersonatorUserId?: string;
+
 }

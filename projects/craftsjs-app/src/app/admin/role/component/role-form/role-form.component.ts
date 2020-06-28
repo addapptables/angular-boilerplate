@@ -44,7 +44,6 @@ export class RoleFormComponent extends FormBase implements OnInit {
   }
 
   private _initFinalStep() {
-    console.log(this.roleDto.permissions);
     this.formFinalStep = this._fb.group({
       permissions: [this.roleDto.permissions]
     });
