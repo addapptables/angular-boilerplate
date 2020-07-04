@@ -50,7 +50,8 @@
     "repeatPassword": "Repetir contraseña",
     "passwordDotNotMatch": "La contraseña actual no coincide",
     "existsUserName": "Ya existe el nombre de usuario",
-    "existsEmailAddress": "Ya existe el email digitado"
+    "existsEmailAddress": "Ya existe el email digitado",
+    "backToMyAccount": "Regresar a mi cuenta"
   },
   "auth": {
     "login": "Iniciar sesión",
@@ -100,7 +101,8 @@
     "areYouSure": "¿Está seguro de eliminar la empresa {{title}}?",
     "change": "Cambiar de empresa",
     "leaveEmptyToSwitchToHost": "Dejar vacío para entrar en el host",
-    "tenantIsNotActive": "Empresa no disponible"
+    "tenantIsNotActive": "Empresa no disponible",
+    "subscriptionEndDate": "Fecha de vencimiento"
   },
   "organizationUnit": {
     "title": "Unidades organizacionales",

@@ -11,7 +11,8 @@ const initialState = adapter.getInitialState({
     loading: false,
     loadingAction: false,
     ActionState: ActionType.none,
-    total: 0
+    total: 0,
+    selectedOrganizationUnit: undefined
 });
 
 @Store<OrganizationUnitStoreModel>(initialState)

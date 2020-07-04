@@ -40,9 +40,9 @@ export class TenantActionService {
 
   setTenantCookie(tenantId: string) {
     if (!_.isEmpty(tenantId)) {
-      this._utilsService.set('craftsjs-tenantId', tenantId, new Date(new Date().getTime() + 5 * 365 * 86400000));
+      this._utilsService.set('craftsjs-tenantId', tenantId, new Date(new Date().getTime() + 5 * 365 * 86400000), '/', undefined, false, "Lax");
     } else {
-      this._utilsService.delete('craftsjs-tenantId');
+      this._utilsService.delete('craftsjs-tenantId', '/', undefined, false, "Lax");
     }
   }
 }

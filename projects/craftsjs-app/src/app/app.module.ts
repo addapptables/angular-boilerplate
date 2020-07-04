@@ -22,7 +22,7 @@ import { L10nTranslationModule, L10nLoader } from 'angular-l10n';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

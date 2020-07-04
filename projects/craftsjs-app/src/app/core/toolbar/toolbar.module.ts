@@ -11,6 +11,11 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RouterModule } from '@angular/router';
 import { MenuModule as CraftsjsMenuModule } from '@craftsjs/menu-admin';
 import { LanguageModule } from '../shared/select-language/select-language.module';
+import { OrganizationUnitToolbarComponent } from './components/organization-unit-toolbar/organization-unit-toolbar.component';
+import { EffectsModule } from '@ngrx/effects';
+import { ReduxRegisterModule } from '@craftsjs/ngrx-action';
+import { RoleOrganizationUnitStore } from '@redux/organization-unit/stores/role-organization-unit.store';
+import { RoleOrganizationUnitEffects } from '@redux/organization-unit/effects/role-organization-unit.effects';
 
 @NgModule({
   imports: [
@@ -22,9 +27,11 @@ import { LanguageModule } from '../shared/select-language/select-language.module
     MatFormFieldModule,
     MatMenuModule,
     RouterModule,
-    LanguageModule
+    LanguageModule,
+    ReduxRegisterModule.forFeature('roleOrganizationUnit', { store: RoleOrganizationUnitStore }),
+    EffectsModule.forFeature([RoleOrganizationUnitEffects])
   ],
-  declarations: [ToolbarComponent, SearchComponent, ProfileComponent],
+  declarations: [ToolbarComponent, SearchComponent, ProfileComponent, OrganizationUnitToolbarComponent],
   exports: [ToolbarComponent]
 })
 export class ToolbarModule { }

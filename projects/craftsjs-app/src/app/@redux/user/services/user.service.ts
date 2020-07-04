@@ -36,7 +36,7 @@ export class UserService extends ServiceApiBase {
     return this.put<ChangePasswordDto, boolean>('profile/update/change-password', input);
   }
 
-  changeOrganizationUnit(organizationUnitId: number) {
-    return this.post<any, any>('ChangeOrganizationUnit', { id: organizationUnitId });
+  changeOrganizationUnit(organizationUnitId: string) {
+    return this.put<any, any>('update/last-organization-unit', { organizationUnitId });
   }
 }

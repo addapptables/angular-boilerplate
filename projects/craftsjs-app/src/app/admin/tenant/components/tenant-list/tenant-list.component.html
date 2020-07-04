@@ -18,7 +18,7 @@
               <button *ngIf="'Page.Tenants.Delete' | isGranted" mat-icon-button (click)="deleteTenant(tenant)">
                 <mat-icon suffix>delete</mat-icon>
               </button>
-              <button mat-icon-button (click)="openModalImpersonation(tenant.id)"
+              <button *ngIf="'Page.Tenants.Impersonation' | isGranted" mat-icon-button (click)="openModalImpersonation(tenant.id)"
                 [matTooltip]="'tenant.impersonation' | translateAsync" matTooltipPosition="above">
                 <mat-icon suffix>supervisor_account</mat-icon>
               </button>

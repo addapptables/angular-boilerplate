@@ -10,4 +10,10 @@ export class TenantDto {
 
   editionId?: number;
 
+  isSubscriptionEnded?: boolean;
+
+  subscriptionEndDate?: Date;
+
+  remainingDayCount?: number;
+
 }

@@ -14,6 +14,8 @@ export class UserDto {
 
   isActive?: boolean;
 
+  lastOrganizationUnitId?: string;
+
   roles: number[];
 
   permissions: string[];

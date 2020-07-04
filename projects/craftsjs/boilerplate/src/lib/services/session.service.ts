@@ -68,6 +68,9 @@ export class SessionService {
       tap((result) => {
         this._loginInformation.next(result);
         this._user.next(result.user);
+        if(result?.tenant?.subscriptionEndDate) {
+          result.tenant.subscriptionEndDate = new Date(result.tenant.subscriptionEndDate);
+        }
         this._tenant.next(result.tenant);
       })
     );

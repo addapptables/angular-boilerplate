@@ -50,7 +50,8 @@
     "repeatPassword": "Repeat password",
     "passwordDotNotMatch": "Current password dot not match with your password",
     "existsUserName": "User already exists",
-    "existsEmailAddress": "Email already exists"
+    "existsEmailAddress": "Email already exists",
+    "backToMyAccount": "Back to my account"
   },
   "auth": {
     "login": "Login",
@@ -100,7 +101,8 @@
     "areYouSure": "Are you sure delete tenant {{title}}?",
     "change": "Change tenant",
     "leaveEmptyToSwitchToHost": "Leave Empty To Switch To Host",
-    "tenantIsNotActive": "Tenant not found"
+    "tenantIsNotActive": "Tenant not found",
+    "subscriptionEndDate": "Subscription end date"
   },
   "organizationUnit": {
     "title": "Organization units",
