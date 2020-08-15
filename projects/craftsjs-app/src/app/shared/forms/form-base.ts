@@ -1,12 +1,13 @@
 import { Store, MemoizedSelector, select, Action } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
-import { OnInit, Output, EventEmitter, OnDestroy, Injector, Type } from '@angular/core';
+import { OnInit, Output, EventEmitter, OnDestroy, Injector, Type, Directive } from '@angular/core';
 import { tap, takeUntil } from 'rxjs/operators';
 import { FormBuilder } from '@angular/forms';
 import { NotifierService } from '@craftsjs/notifier';
 import { ActionType } from '@redux/shared/models/action-type.model';
-import { L10nTranslationService } from 'angular-l10n';
+import { TranslateService } from '@ngx-translate/core';
 
+@Directive()
 export class FormBase implements OnInit, OnDestroy {
 
   unsubscribeAll = new Subject();
@@ -19,7 +20,7 @@ export class FormBase implements OnInit, OnDestroy {
 
   protected _notifierService: NotifierService;
 
-  protected _translateService: L10nTranslationService;
+  protected _translateService: TranslateService;
 
   protected actionState$: Observable<ActionType>;
 
@@ -35,7 +36,7 @@ export class FormBase implements OnInit, OnDestroy {
     this._store = injector.get(Store as Type<Store>);
     this._fb = injector.get(FormBuilder as Type<FormBuilder>);
     this._notifierService = injector.get(NotifierService as Type<NotifierService>);
-    this._translateService = injector.get(L10nTranslationService);
+    this._translateService = injector.get(TranslateService);
   }
 
   ngOnInit(): void {
@@ -55,11 +56,11 @@ export class FormBase implements OnInit, OnDestroy {
         if (result === ActionType.success) {
           this.save.emit(ActionType.success);
           this._store.dispatch(this.actionComplete);
-          this._notifierService.openSuccess(this._translateService.translate('general.saveSuccessFully'));
+          this._notifierService.openSuccess(this._translateService.instant('general.saveSuccessFully'));
         } else if (result === ActionType.updated) {
           this.save.emit(ActionType.updated);
           this._store.dispatch(this.actionComplete);
-          this._notifierService.openSuccess(this._translateService.translate('general.saveSuccessFully'));
+          this._notifierService.openSuccess(this._translateService.instant('general.saveSuccessFully'));
         } else if (result === ActionType.error) {
           this._store.dispatch(this.actionComplete);
         }

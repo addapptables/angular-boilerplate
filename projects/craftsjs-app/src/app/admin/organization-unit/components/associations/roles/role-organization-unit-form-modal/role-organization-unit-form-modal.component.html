@@ -1,6 +1,6 @@
 <craftsjs-modal>
   <modal-header>
-    <h3 class="text-accent">{{'organizationUnit.associateRole' | translateAsync}}</h3>
+    <h3 class="text-accent">{{'organizationUnit.associateRole' | translate}}</h3>
     <button mat-icon-button (click)="close()">
       <mat-icon suffix>close</mat-icon>
     </button>
@@ -11,8 +11,8 @@
   <modal-footer>
     <button type="submit" form="associate-role-organizationUnit-form" mat-raised-button color="accent"
     [disabled]="(organizationUnitForm.loading$ | async) || organizationUnitForm.rolesSelected.length === 0">
-      {{'general.save' | translateAsync}}
+      {{'general.save' | translate}}
     </button>
-    <button type="button" mat-raised-button (click)="close()">{{'general.close' | translateAsync}}</button>
+    <button type="button" mat-raised-button (click)="close()">{{'general.close' | translate}}</button>
   </modal-footer>
 </craftsjs-modal>

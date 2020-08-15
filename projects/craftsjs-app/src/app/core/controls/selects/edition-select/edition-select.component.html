@@ -1,4 +1,4 @@
-<mat-select [placeholder]="'edition.title' | translateAsync" [multiple]="multiple" [disabled]="disabled" [value]="value$ | async" [required]="required"
+<mat-select [placeholder]="'edition.title' | translate" [multiple]="multiple" [disabled]="disabled" [value]="value$ | async" [required]="required"
 (selectionChange)="onChange($event)" (openedChange)="openedChange($event)">
   <mat-option *ngFor="let edition of editions$ | async" [value]="edition.id">{{edition.name}}</mat-option>
 </mat-select>

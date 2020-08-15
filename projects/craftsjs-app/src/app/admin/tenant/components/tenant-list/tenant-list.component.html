@@ -9,7 +9,7 @@
           <!-- Actions Column -->
           <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef>
-              {{'general.actions' | translateAsync}}
+              {{'general.actions' | translate}}
             </mat-header-cell>
             <mat-cell class="text-light-gray" *matCellDef="let tenant">
               <button mat-icon-button (click)="editTenant(tenant)" *ngIf="'Page.Tenants.Update' | isGranted">
@@ -19,7 +19,7 @@
                 <mat-icon suffix>delete</mat-icon>
               </button>
               <button *ngIf="'Page.Tenants.Impersonation' | isGranted" mat-icon-button (click)="openModalImpersonation(tenant.id)"
-                [matTooltip]="'tenant.impersonation' | translateAsync" matTooltipPosition="above">
+                [matTooltip]="'tenant.impersonation' | translate" matTooltipPosition="above">
                 <mat-icon suffix>supervisor_account</mat-icon>
               </button>
             </mat-cell>
@@ -27,28 +27,28 @@
 
             <!-- name Column -->
             <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef>{{'tenant.name' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let tenant" title="{{'tenant.name' | translateAsync}}"> {{tenant.name}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef>{{'tenant.name' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let tenant" title="{{'tenant.name' | translate}}"> {{tenant.name}} </mat-cell>
             </ng-container>
             <!-- name Column -->
 
             <!-- subDomain Column -->
             <ng-container matColumnDef="subDomain">
-                <mat-header-cell *matHeaderCellDef>{{'tenant.subDomain' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let tenant" title="{{'tenant.subDomain' | translateAsync}}"> {{tenant.subDomain}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef>{{'tenant.subDomain' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let tenant" title="{{'tenant.subDomain' | translate}}"> {{tenant.subDomain}} </mat-cell>
             </ng-container>
             <!-- subDomain Column -->
 
             <!-- isActive Column -->
             <ng-container matColumnDef="isActive">
-                <mat-header-cell *matHeaderCellDef>{{'tenant.isActive' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let tenant" title="{{'tenant.isActive' | translateAsync}}">
+                <mat-header-cell *matHeaderCellDef>{{'tenant.isActive' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let tenant" title="{{'tenant.isActive' | translate}}">
                   <ng-container [ngSwitch]="tenant.isActive">
                     <span *ngSwitchCase="true">
-                      {{'general.yes' | translateAsync}}
+                      {{'general.yes' | translate}}
                     </span>
                     <span *ngSwitchCase="false">
-                      {{'general.no' | translateAsync}}
+                      {{'general.no' | translate}}
                     </span>
                   </ng-container>
                 </mat-cell>
@@ -57,8 +57,8 @@
 
             <!-- edition Column -->
             <ng-container matColumnDef="edition">
-                <mat-header-cell *matHeaderCellDef>{{'tenant.edition' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let tenant" title="{{'tenant.edition' | translateAsync}}"> {{tenant.edition?.displayName}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef>{{'tenant.edition' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let tenant" title="{{'tenant.edition' | translate}}"> {{tenant.edition?.displayName}} </mat-cell>
             </ng-container>
             <!-- edition Column -->
 

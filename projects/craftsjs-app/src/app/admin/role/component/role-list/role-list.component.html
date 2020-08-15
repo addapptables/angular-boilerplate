@@ -8,7 +8,7 @@
           <!-- Actions Column -->
           <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef>
-              {{'general.actions' | translateAsync}}
+              {{'general.actions' | translate}}
             </mat-header-cell>
             <mat-cell class="text-light-gray" *matCellDef="let role">
               <button mat-icon-button (click)="editRole(role)" *ngIf="'Page.Administration.Role.Update' | isGranted">
@@ -22,8 +22,8 @@
 
             <!-- name Column -->
             <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef>{{'role.name' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let role" title="{{'role.name' | translateAsync}}"> {{role.name}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef>{{'role.name' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let role" title="{{'role.name' | translate}}"> {{role.name}} </mat-cell>
             </ng-container>
 
             <mat-header-row *matHeaderRowDef="dataSource.displayedColumns | isGrantedActionColumn: ['Page.Administration.Role.Update', 'Page.Administration.Role.Delete']"></mat-header-row>

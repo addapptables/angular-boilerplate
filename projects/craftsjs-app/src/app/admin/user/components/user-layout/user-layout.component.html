@@ -1,19 +1,19 @@
-<card>
+<craftsjs-card>
   <card-header>
     <card-header-oval>
       <card-title>
         <mat-icon suffix>people</mat-icon>
-        <h4>{{'user.title' | translateAsync}}</h4>
+        <h4>{{'user.title' | translate}}</h4>
       </card-title>
     </card-header-oval>
     <card-header-subtitle *ngIf="'Page.Administration.User.Create' | isGranted">
       <button type="button" color="accent" mat-raised-button (click)="createUser()">
         <mat-icon suffix>person_add</mat-icon>
-        {{'user.create' | translateAsync}}
+        {{'user.create' | translate}}
       </button>
     </card-header-subtitle>
   </card-header>
   <card-body>
     <app-user-list></app-user-list>
   </card-body>
-</card>
+</craftsjs-card>

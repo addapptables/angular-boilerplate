@@ -22,7 +22,10 @@ export class TokenService {
     this.cookieService.delete(this.tokenCookieName, '/', undefined, false, "Lax");
   }
 
-  setToken(authToken: string, expireDate?: Date): void {
+  setToken(authToken: string, expireDate?: number): void {
+    if(this.getToken()) {
+      this.clearToken();
+    }
     this.cookieService.set(this.tokenCookieName, authToken, expireDate, '/', undefined, false, "Lax");
   }
 

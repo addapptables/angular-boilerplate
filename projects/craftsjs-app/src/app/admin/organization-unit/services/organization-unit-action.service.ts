@@ -22,8 +22,8 @@ export class OrganizationUnitActionService extends ActionBaseService {
 
   deleteOrganizationUnit(organizationUnit: OrganizationUnitDto) {
     this.delete(
-      this._translateService.translate('general.delete'),
-      this._translateService.translate('organizationUnit.areYouSure', { title: organizationUnit.name }),
+      this._translateService.instant('general.delete'),
+      this._translateService.instant('organizationUnit.areYouSure', { title: organizationUnit.name }),
       OrganizationActions.deleteOrganizationUnit({ id: organizationUnit.id })
     );
   }

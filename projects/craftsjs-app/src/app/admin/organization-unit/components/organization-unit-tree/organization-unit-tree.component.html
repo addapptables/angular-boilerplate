@@ -3,7 +3,7 @@
         <mat-spinner></mat-spinner>
     </div>
     <div class="tree-empty-message" *ngIf="!(loading$ | async) && (isEmpty$ | async)">
-      <h4>{{'general.emptyData' | translateAsync}}</h4>
+      <h4>{{'general.emptyData' | translate}}</h4>
     </div>
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
       <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding (contextmenu)="onContextMenu($event, node)">
@@ -47,15 +47,15 @@
       <ng-template matMenuContent let-organizationUnit="organizationUnit">
         <button type="button" mat-menu-item (click)="addSubUnit(organizationUnit)">
           <i class="fas fa-sitemap"></i>
-          {{'organizationUnit.addSubUnit' | translateAsync}}
+          {{'organizationUnit.addSubUnit' | translate}}
         </button>
         <button type="button" mat-menu-item (click)="editOrganizationUnit(organizationUnit)">
           <mat-icon suffix>edit</mat-icon>
-          {{'general.edit' | translateAsync}}
+          {{'general.edit' | translate}}
         </button>
         <button type="button" mat-menu-item (click)="deleteOrganizationUnit(organizationUnit)">
           <mat-icon suffix>delete</mat-icon>
-          {{'general.delete' | translateAsync}}
+          {{'general.delete' | translate}}
         </button>
       </ng-template>
     </mat-menu>

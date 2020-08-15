@@ -1,7 +1,7 @@
 <div class="table-container">
     <div class="role-oganization-unit-actions" *ngIf="organizationUnitId">
         <button mat-raised-button color="accent" (click)="associateRoles()">
-          {{'organizationUnit.associateRole' | translateAsync}}
+          {{'organizationUnit.associateRole' | translate}}
         </button>
     </div>
     <div class="table-loading" *ngIf="loading$ | async">
@@ -13,7 +13,7 @@
           <!-- Actions Column -->
           <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef>
-              {{'general.actions' | translateAsync}}
+              {{'general.actions' | translate}}
             </mat-header-cell>
             <mat-cell class="text-light-gray" *matCellDef="let roleOrganizationUnit">
               <button mat-icon-button (click)="delete(roleOrganizationUnit)">
@@ -24,8 +24,8 @@
 
             <!-- name Column -->
             <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef>{{'role.name' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let roleOrganizationUnit" title="{{'role.name' | translateAsync}}"> {{roleOrganizationUnit.name}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef>{{'role.name' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let roleOrganizationUnit" title="{{'role.name' | translate}}"> {{roleOrganizationUnit.name}} </mat-cell>
             </ng-container>
             <!-- name Column -->
 
@@ -35,6 +35,6 @@
         <mat-paginator [pageSize]="size" hidePageSize="true"></mat-paginator>
     </div>
     <div class="emtpy-message" *ngIf="!organizationUnitId">
-      <span>{{'organizationUnit.selectOrganizationToViewRoles' | translateAsync}}</span>
+      <span>{{'organizationUnit.selectOrganizationToViewRoles' | translate}}</span>
     </div>
 </div>

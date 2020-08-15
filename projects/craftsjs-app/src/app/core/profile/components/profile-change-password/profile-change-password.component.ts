@@ -7,7 +7,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { NotifierService, NotifierType } from '@craftsjs/notifier';
 import { PasswordErrorStateMatcher } from '../../../../shared/utils/error-state.util';
 import { UtilValidation } from '../../../../shared/utils/util-validation';
-import { L10nTranslationService } from 'angular-l10n';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile-change-password',
@@ -35,7 +35,7 @@ export class ProfileChangePasswordComponent implements OnInit, OnDestroy {
     private _fb: FormBuilder,
     private _userService: UserService,
     private _notifierService: NotifierService,
-    private _translateService: L10nTranslationService
+    private _translateService: TranslateService
   ) { }
 
   ngOnInit(): void {
@@ -61,7 +61,7 @@ export class ProfileChangePasswordComponent implements OnInit, OnDestroy {
         this.saveSubject.next(false);
       }),
       tap(() => {
-        this._notifierService.open({ type: NotifierType.success, message: this._translateService.translate('general.saveSuccessFully') });
+        this._notifierService.open({ type: NotifierType.success, message: this._translateService.instant('general.saveSuccessFully') });
         this.formGroup.reset();
         this.formDirective.resetForm();
       })

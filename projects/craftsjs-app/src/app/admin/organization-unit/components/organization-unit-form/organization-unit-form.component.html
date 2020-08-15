@@ -3,10 +3,10 @@
     <!-- name Field -->
     <div class="col-12">
       <mat-form-field>
-        <input matInput [placeholder]="'organizationUnit.name' | translateAsync" formControlName="name" required>
+        <input matInput [placeholder]="'organizationUnit.name' | translate" formControlName="name" required>
         <mat-error *ngIf="formGroup.controls.name.invalid">
-          <span *ngIf="formGroup.controls.name.errors.required">{{'general.required' | translateAsync}}</span>
-          <span *ngIf="formGroup.controls.name.errors.maxlength">{{'general.maxlength' | translateAsync: { x: maxDisplayNameLength } }}</span>
+          <span *ngIf="formGroup.controls.name.errors.required">{{'general.required' | translate}}</span>
+          <span *ngIf="formGroup.controls.name.errors.maxlength">{{'general.maxlength' | translate: { x: maxDisplayNameLength } }}</span>
         </mat-error>
       </mat-form-field>
     </div>

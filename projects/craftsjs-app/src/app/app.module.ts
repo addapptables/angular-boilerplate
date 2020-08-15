@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
@@ -17,8 +18,7 @@ import { reducers, metaReducers } from '../reducers';
 import { environment } from '../environments/environment';
 import { CraftsRouterSerializer } from '../reducers/router-serializer.shared';
 import { AuthModule } from './auth/auth.module';
-import { HttpTranslationLoader, l10nConfig, initL10n } from './localization/i18n.localization';
-import { L10nTranslationModule, L10nLoader } from 'angular-l10n';
+import { createTranslateLoader } from './localization/i18n.localization';
 
 @NgModule({
   declarations: [
@@ -29,12 +29,13 @@ import { L10nTranslationModule, L10nLoader } from 'angular-l10n';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    L10nTranslationModule.forRoot(
-      l10nConfig,
-      {
-        translationLoader: HttpTranslationLoader
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
       }
-    ),
+    }),
     StoreModule.forRoot(reducers, { metaReducers, runtimeChecks: { strictStateImmutability: true, strictActionImmutability: true } }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([]),
@@ -49,12 +50,6 @@ import { L10nTranslationModule, L10nLoader } from 'angular-l10n';
   providers: [
     {
       provide: RouterStateSerializer, useClass: CraftsRouterSerializer
-    },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initL10n,
-      deps: [L10nLoader],
-      multi: true
     }
   ],
   bootstrap: [AppComponent]

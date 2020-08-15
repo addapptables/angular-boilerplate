@@ -36,7 +36,7 @@ export class LoginFormComponent implements OnDestroy {
   login() {
     if (this.form.invalid) { return; }
     this.saveSubject.next(true);
-    this.authService.authenticate(this.form.value, this.form.value.rememberClient).pipe(
+    this.authService.authenticate(this.form.value).pipe(
       takeUntil(this.unsubscribeAll),
       finalize(() => this.saveSubject.next(false)),
       tap(() => this._router.navigate(['/admin']))

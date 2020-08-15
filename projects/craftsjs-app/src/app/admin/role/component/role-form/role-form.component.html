@@ -1,28 +1,28 @@
 <mat-horizontal-stepper [linear]="true">
   <mat-step [stepControl]="formFirstStep">
     <form [formGroup]="formFirstStep" autocomplete="off" class="form-full-width">
-      <ng-template matStepLabel>{{'role.fillGeneralInformation' | translateAsync}}</ng-template>
+      <ng-template matStepLabel>{{'role.fillGeneralInformation' | translate}}</ng-template>
       <mat-form-field>
-        <input matInput [placeholder]="'role.name' | translateAsync" formControlName="name" required>
+        <input matInput [placeholder]="'role.name' | translate" formControlName="name" required>
         <mat-error *ngIf="formFirstStep.controls.name.invalid">
-          <span *ngIf="formFirstStep.controls.name.errors.required">{{'general.required' | translateAsync}}</span>
-          <span *ngIf="formFirstStep.controls.name.errors.maxlength">{{'general.maxlength' | translateAsync: { x:
+          <span *ngIf="formFirstStep.controls.name.errors.required">{{'general.required' | translate}}</span>
+          <span *ngIf="formFirstStep.controls.name.errors.maxlength">{{'general.maxlength' | translate: { x:
             maxLength } }}</span>
         </mat-error>
       </mat-form-field>
       <div class="step-next">
-        <button mat-raised-button matStepperNext>{{'general.next' | translateAsync}}</button>
+        <button mat-raised-button matStepperNext>{{'general.next' | translate}}</button>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="formFinalStep">
     <form [formGroup]="formFinalStep" autocomplete="off" (ngSubmit)="submit()">
-      <ng-template matStepLabel>{{'role.fillPermissions' | translateAsync}}</ng-template>
+      <ng-template matStepLabel>{{'role.fillPermissions' | translate}}</ng-template>
       <app-permission-tree formControlName="permissions" class="role-form-permission-tree" addapptablesPerfectScrollbar></app-permission-tree>
       <div class="step-next">
-        <button mat-raised-button matStepperPrevious>{{'general.back' | translateAsync}}</button>
+        <button mat-raised-button matStepperPrevious>{{'general.back' | translate}}</button>
         <button type="submit" mat-raised-button color="primary" [disabled]="loadingAction$ | async">
-          {{'general.save' | translateAsync}}
+          {{'general.save' | translate}}
         </button>
       </div>
     </form>

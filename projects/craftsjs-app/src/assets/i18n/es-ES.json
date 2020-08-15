@@ -79,7 +79,7 @@
     "updateInfo": "Actualizar perfil",
     "changePassword": "Cambiar contraseña"
   },
-  "translate": {
+  "| translate": {
     "english": "Inglés",
     "spanish": "Español"
   },

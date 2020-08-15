@@ -9,7 +9,7 @@
             <!-- Actions Column -->
             <ng-container matColumnDef="actions">
               <mat-header-cell *matHeaderCellDef>
-                {{'general.actions' | translateAsync}}
+                {{'general.actions' | translate}}
               </mat-header-cell>
               <mat-cell class="text-light-gray" *matCellDef="let user">
                 <button mat-icon-button (click)="editUser(user)" *ngIf="'Page.Administration.User.Update' | isGranted">
@@ -23,7 +23,7 @@
 
             <ng-container matColumnDef="extendColumn">
               <mat-header-cell *matHeaderCellDef>
-                {{'general.actions' | translateAsync}}
+                {{'general.actions' | translate}}
               </mat-header-cell>
               <mat-cell class="text-light-gray" *matCellDef="let user">
                 <ng-content *ngTemplateOutlet="templateRef; context:{user: user}" [ngIf]="templateRef"></ng-content>
@@ -32,42 +32,42 @@
 
             <!-- userName Column -->
             <ng-container matColumnDef="userName">
-                <mat-header-cell *matHeaderCellDef>{{'user.userName' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let user" title="{{'user.userName' | translateAsync}}"> {{user.userName}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef>{{'user.userName' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let user" title="{{'user.userName' | translate}}"> {{user.userName}} </mat-cell>
             </ng-container>
             <!-- userName Column -->
 
             <!-- fullName Column -->
             <ng-container matColumnDef="fullName">
-                <mat-header-cell *matHeaderCellDef>{{'user.fullName' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let user" title="{{'user.fullName' | translateAsync}}"> {{user.name + ' ' + user.surname}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef>{{'user.fullName' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let user" title="{{'user.fullName' | translate}}"> {{user.name + ' ' + user.surname}} </mat-cell>
             </ng-container>
             <!-- fullName Column -->
 
             <!-- emailAddress Column -->
             <ng-container matColumnDef="emailAddress">
-                <mat-header-cell *matHeaderCellDef>{{'user.emailAddress' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let user" title="{{'user.emailAddress' | translateAsync}}"> {{user.emailAddress}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef>{{'user.emailAddress' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let user" title="{{'user.emailAddress' | translate}}"> {{user.emailAddress}} </mat-cell>
             </ng-container>
             <!-- emailAddress Column -->
 
             <!-- phoneNumber Column -->
             <ng-container matColumnDef="phoneNumber">
-                <mat-header-cell *matHeaderCellDef>{{'user.phoneNumber' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let user" title="{{'user.phoneNumber' | translateAsync}}"> {{user.phoneNumber}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef>{{'user.phoneNumber' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let user" title="{{'user.phoneNumber' | translate}}"> {{user.phoneNumber}} </mat-cell>
             </ng-container>
             <!-- phoneNumber Column -->
 
             <!-- isActive Column -->
             <ng-container matColumnDef="isActive">
-                <mat-header-cell *matHeaderCellDef>{{'user.isActive' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let user" title="{{'user.isActive' | translateAsync}}">
+                <mat-header-cell *matHeaderCellDef>{{'user.isActive' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let user" title="{{'user.isActive' | translate}}">
                   <ng-container [ngSwitch]="user.isActive">
                     <span *ngSwitchCase="true">
-                      {{'general.yes' | translateAsync}}
+                      {{'general.yes' | translate}}
                     </span>
                     <span *ngSwitchCase="false">
-                      {{'general.no' | translateAsync}}
+                      {{'general.no' | translate}}
                     </span>
                   </ng-container>
                 </mat-cell>

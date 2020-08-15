@@ -22,8 +22,8 @@ export class EditionActionService extends ActionBaseService {
 
   deleteEdition(edition: EditionDto) {
     this.delete(
-      this._translateService.translate('general.delete'),
-      this._translateService.translate('edition.areYouSure', { title: edition.name }),
+      this._translateService.instant('general.delete'),
+      this._translateService.instant('edition.areYouSure', { title: edition.name }),
       EditionActions.deleteEdition({ payload: { id: edition.id } })
     );
   }

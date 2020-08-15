@@ -27,8 +27,8 @@ export class TenantActionService extends ActionBaseService {
 
   deleteTenant(tenant: TenantDto) {
     this.delete(
-      this._translateService.translate('general.delete'),
-      this._translateService.translate('tenant.areYouSure', { title: tenant.name }),
+      this._translateService.instant('general.delete'),
+      this._translateService.instant('tenant.areYouSure', { title: tenant.name }),
       TenantActions.deleteTenant({ id: tenant.id })
     );
   }

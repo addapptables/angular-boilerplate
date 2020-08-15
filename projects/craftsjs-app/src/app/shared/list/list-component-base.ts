@@ -1,10 +1,11 @@
 import { IDataSource } from './data-source.interface';
-import { ViewChild, OnInit, OnDestroy, AfterViewInit, Input } from '@angular/core';
+import { ViewChild, OnInit, OnDestroy, AfterViewInit, Input, Directive } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { Subscription, Observable, BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil, map, tap } from 'rxjs/operators';
 import { PageQueryModel } from '@redux/shared/models/page-query.model';
 
+@Directive()
 export abstract class ListComponentBase<T, D = any> implements OnInit, OnDestroy, AfterViewInit {
 
   unsubscribeAll = new Subject();

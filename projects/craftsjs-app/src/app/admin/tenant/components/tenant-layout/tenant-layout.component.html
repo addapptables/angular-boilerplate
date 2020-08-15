@@ -1,19 +1,19 @@
-<card>
+<craftsjs-card>
   <card-header>
     <card-header-oval>
       <card-title>
         <mat-icon suffix>business</mat-icon>
-        <h4>{{'tenant.title' | translateAsync}}</h4>
+        <h4>{{'tenant.title' | translate}}</h4>
       </card-title>
     </card-header-oval>
     <card-header-subtitle *ngIf="'Page.Tenants.Create' | isGranted">
       <button color="accent" mat-raised-button (click)="createTenant()">
         <mat-icon suffix>add</mat-icon>
-        {{'tenant.create' | translateAsync}}
+        {{'tenant.create' | translate}}
       </button>
     </card-header-subtitle>
   </card-header>
   <card-body>
     <app-tenant-list></app-tenant-list>
   </card-body>
-</card>
+</craftsjs-card>

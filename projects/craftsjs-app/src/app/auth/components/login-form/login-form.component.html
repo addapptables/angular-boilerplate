@@ -2,7 +2,7 @@
 
   <!-- userNameOrEmailAddress Field -->
   <mat-form-field class="login-input" appearance="outline">
-    <mat-label>{{'auth.username' | translateAsync}}</mat-label>
+    <mat-label>{{'auth.username' | translate}}</mat-label>
     <input matInput type="text" formControlName="username" required>
     <mat-icon matSuffix>profile</mat-icon>
   </mat-form-field>
@@ -10,22 +10,22 @@
 
   <!-- password Field -->
   <mat-form-field class="login-input" appearance="outline">
-    <mat-label>{{'auth.password' | translateAsync}}</mat-label>
-    <input matInput type="password" [placeholder]="'auth.password' | translateAsync" formControlName="password" required>
+    <mat-label>{{'auth.password' | translate}}</mat-label>
+    <input matInput type="password" [placeholder]="'auth.password' | translate" formControlName="password" required>
     <mat-icon matSuffix>lock</mat-icon>
   </mat-form-field>
   <!-- password Field -->
 
   <!-- rememberClient Field -->
   <div class="login-remember">
-    <mat-checkbox formControlName="rememberClient">{{ 'auth.remember' | translateAsync }}</mat-checkbox>
-    <a [routerLink]="['/forgot-password']">{{ 'auth.forgotPassword' | translateAsync}}</a>
+    <mat-checkbox formControlName="rememberClient">{{ 'auth.remember' | translate }}</mat-checkbox>
+    <a [routerLink]="['/forgot-password']">{{ 'auth.forgotPassword' | translate}}</a>
   </div>
   <!-- rememberClient Field -->
 
   <!-- action login -->
   <button class="login-button" mat-raised-button color="primary" (click)="login()" [disabled]="!form.valid || (saving$ | async)">
-    {{ "auth.login" | translateAsync }}
+    {{ "auth.login" | translate }}
   </button>
   <!-- action login -->
 

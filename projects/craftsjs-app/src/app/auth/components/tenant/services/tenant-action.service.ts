@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NotifierService, NotifierType } from '@craftsjs/notifier';
 import { CookieService } from 'ngx-cookie-service';
-import { L10nTranslationService } from 'angular-l10n';
+import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'lodash';
 import { TenantService } from '@redux/tenant/services/tenant.service';
 import { GetTenantDto } from '@redux/tenant/models/get-tenant-dto.model';
@@ -12,7 +12,7 @@ export class TenantActionService {
 
   constructor(
     private _notifierService: NotifierService,
-    private _translateService: L10nTranslationService,
+    private _translateService: TranslateService,
     private _utilsService: CookieService,
     private _tenantService: TenantService
   ) { }
@@ -23,7 +23,7 @@ export class TenantActionService {
 
   changeTenant(tenant: TenantDto, tenancyName: string): boolean {
     if (_.isEmpty(tenant)) {
-      this.notifierWarning(this._translateService.translate('tenant.tenantIsNotActive', { x: tenancyName }));
+      this.notifierWarning(this._translateService.instant('tenant.tenantIsNotActive', { x: tenancyName }));
       this.setTenantCookie(undefined);
       return false;
     }

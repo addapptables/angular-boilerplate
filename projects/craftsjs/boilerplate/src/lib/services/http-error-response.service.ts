@@ -2,7 +2,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { DialogAlertComponent, AlertService } from '@craftsjs/alert';
 import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { L10nTranslationService } from 'angular-l10n';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class HttpErrorResponseService {
@@ -27,7 +27,7 @@ export class HttpErrorResponseService {
 
   constructor(
     private alertService: AlertService,
-    private translateService: L10nTranslationService
+    private translateService: TranslateService
   ) { }
 
   handleNonErrorResponse(response: HttpResponse<any>) {
@@ -55,7 +55,7 @@ export class HttpErrorResponseService {
       message = error.message || this.defaultError.message;
     }
     this.dialog && this.dialog.close();
-    this.dialog = this.alertService.showError('Error', this.translateService.translate(message));
+    this.dialog = this.alertService.showError('Error', this.translateService.instant(message));
   }
 
 }

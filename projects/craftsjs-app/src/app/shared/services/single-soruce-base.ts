@@ -1,9 +1,10 @@
-import { OnInit, OnDestroy } from '@angular/core';
+import { OnInit, OnDestroy, Directive } from '@angular/core';
 import { Store, select, MemoizedSelector, Action } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { tap, takeUntil } from 'rxjs/operators';
 import { isEmpty } from 'lodash';
 
+@Directive()
 export class SingleSourceBase<T> implements OnInit, OnDestroy {
 
   unsubscribeAll = new Subject();

@@ -3,10 +3,10 @@
     <!-- UserName Field -->
     <div class="col-12 col-md-6">
       <mat-form-field>
-        <input matInput [placeholder]="'user.userName' | translateAsync" formControlName="userName" required>
+        <input matInput [placeholder]="'user.userName' | translate" formControlName="userName" required>
         <mat-error *ngIf="formGroup.controls.userName.invalid">
-          <span *ngIf="formGroup.controls.userName.errors.required">{{'general.required' | translateAsync}}</span>
-          <span *ngIf="formGroup.controls.userName.errors.maxlength">{{'general.maxlength' | translateAsync: { x:
+          <span *ngIf="formGroup.controls.userName.errors.required">{{'general.required' | translate}}</span>
+          <span *ngIf="formGroup.controls.userName.errors.maxlength">{{'general.maxlength' | translate: { x:
             maxLengthLargeSize } }}</span>
         </mat-error>
       </mat-form-field>
@@ -15,13 +15,12 @@
     <!-- EmailAddress Field -->
     <div class="col-12 col-md-6">
       <mat-form-field>
-        <input matInput [placeholder]="'user.emailAddress' | translateAsync" formControlName="emailAddress" required>
+        <input matInput [placeholder]="'user.emailAddress' | translate" formControlName="emailAddress" required>
         <mat-error *ngIf="formGroup.controls.emailAddress.invalid">
-          <span *ngIf="formGroup.controls.emailAddress.errors.required">{{'general.required' | translateAsync}}</span>
-          <span *ngIf="formGroup.controls.emailAddress.errors.maxlength">{{'general.maxlength' | translateAsync: { x:
+          <span *ngIf="formGroup.controls.emailAddress.errors.required">{{'general.required' | translate}}</span>
+          <span *ngIf="formGroup.controls.emailAddress.errors.maxlength">{{'general.maxlength' | translate: { x:
             maxLengthLargeSize } }}</span>
-          <span *ngIf="!formGroup.controls.emailAddress.errors.required && formGroup.controls.emailAddress.errors.email">{{'general.isEmail'
-            | translateAsync }}</span>
+          <span *ngIf="!formGroup.controls.emailAddress.errors.required && formGroup.controls.emailAddress.errors.email">{{'general.isEmail' | translate }}</span>
         </mat-error>
       </mat-form-field>
     </div>
@@ -29,10 +28,10 @@
     <!-- Name Field -->
     <div class="col-12 col-md-6">
       <mat-form-field>
-        <input matInput [placeholder]="'user.name' | translateAsync" formControlName="name" required>
+        <input matInput [placeholder]="'user.name' | translate" formControlName="name" required>
         <mat-error *ngIf="formGroup.controls.name.invalid">
-          <span *ngIf="formGroup.controls.name.errors.required">{{'general.required' | translateAsync}}</span>
-          <span *ngIf="formGroup.controls.name.errors.maxlength">{{'general.maxlength' | translateAsync: { x:
+          <span *ngIf="formGroup.controls.name.errors.required">{{'general.required' | translate}}</span>
+          <span *ngIf="formGroup.controls.name.errors.maxlength">{{'general.maxlength' | translate: { x:
             maxLengthSmallSize } }}</span>
         </mat-error>
       </mat-form-field>
@@ -41,10 +40,10 @@
     <!-- Surname Field -->
     <div class="col-12 col-md-6">
       <mat-form-field>
-        <input matInput [placeholder]="'user.surname' | translateAsync" formControlName="surname" required>
+        <input matInput [placeholder]="'user.surname' | translate" formControlName="surname" required>
         <mat-error *ngIf="formGroup.controls.surname.invalid">
-          <span *ngIf="formGroup.controls.surname.errors.required">{{'general.required' | translateAsync}}</span>
-          <span *ngIf="formGroup.controls.surname.errors.maxlength">{{'general.maxlength' | translateAsync: { x:
+          <span *ngIf="formGroup.controls.surname.errors.required">{{'general.required' | translate}}</span>
+          <span *ngIf="formGroup.controls.surname.errors.maxlength">{{'general.maxlength' | translate: { x:
             maxLengthSmallSize } }}</span>
         </mat-error>
       </mat-form-field>
@@ -53,7 +52,7 @@
       <app-crop-image formControlName="profilePictureBase64"></app-crop-image>
     </div>
     <div class="col-12 text-right">
-      <button type="submit" mat-raised-button color="accent" [disabled]="loadingAction$ | async">{{'general.save' | translateAsync}}</button>
+      <button type="submit" mat-raised-button color="accent" [disabled]="loadingAction$ | async">{{'general.save' | translate}}</button>
     </div>
   </div>
 </form>

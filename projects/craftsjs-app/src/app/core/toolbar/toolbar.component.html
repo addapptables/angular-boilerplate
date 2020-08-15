@@ -4,7 +4,7 @@
     <div class="toolbar-quick-access d-none d-md-flex">
       <span *ngIf="tenant$ | async as tenant">
         <div class="toolbar-tenant-subscriptionEndDate" *ngIf="tenant.subscriptionEndDate && tenant.editionId">
-          <span>{{'tenant.subscriptionEndDate' | translateAsync}}:</span>
+          <span>{{'tenant.subscriptionEndDate' | translate}}:</span>
           <span>{{tenant.subscriptionEndDate | momentFormat: 'DD MMMM YYYY'}}</span>
           <span class="toolbar-tenant-indicator" [ngClass]="{'bg-danger':tenant.isSubscriptionEnded,'bg-success':!tenant.isSubscriptionEnded}">
           </span>
@@ -14,7 +14,7 @@
     <div class="toolbar-actions align-items-center">
       <button *ngIf="isImpersonatedLogin$ | async" type="button" mat-button (click)="backToMyAccount()" [disabled]="saving$ | async">
         <mat-icon matSuffix>arrow_back</mat-icon>
-        {{'user.backToMyAccount' | translateAsync}}
+        {{'user.backToMyAccount' | translate}}
       </button>
       <app-organization-unit-toolbar *ngIf="tenant$ | async"></app-organization-unit-toolbar>
       <app-profile></app-profile>

@@ -15,6 +15,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class AuthService {
 
   private baseUrl: string;
+  private refreshTokenTimeout: any;
 
   constructor(
     private readonly http: HttpClient,
@@ -27,18 +28,22 @@ export class AuthService {
     this.baseUrl = `${configuration.remoteServiceBaseUrl}/api/auth`;
   }
 
-  authenticate(input: LoginDto, rememberMe?: boolean) {
+  authenticate(input: LoginDto) {
     return this.http.post<LoginResultDto>(`${this.baseUrl}/login`, input).pipe(
-      tap(result => this.processAuthenticateResult(result, rememberMe)),
+      tap(result => this.processAuthenticateResult(result)),
       switchMap(() => {
         return this.sessionService.init();
       })
     );
   }
 
+  logout() {
+    this.stopRefreshTokenTimer();
+  }
+
   impersonatedAuthenticate(input: ImpersonateInput) {
     return this.http.post<LoginResultDto>(`${this.baseUrl}/impersonated`, input).pipe(
-      tap(result => this.processAuthenticateResult(result, false)),
+      tap(result => this.processAuthenticateResult(result)),
       switchMap(() => {
         this.setTenantCookie(input.tenantImpersonationId);
         return this.sessionService.init();
@@ -48,7 +53,7 @@ export class AuthService {
 
   backToImpersonatedAuthenticate() {
     return this.http.get<LoginResultDto>(`${this.baseUrl}/back-to-impersonate`).pipe(
-      tap(result => this.processAuthenticateResult(result, false)),
+      tap(result => this.processAuthenticateResult(result)),
       switchMap(() => {
         this.setTenantCookie(undefined);
         return this.sessionService.init();
@@ -56,20 +61,38 @@ export class AuthService {
     );
   }
 
-  private processAuthenticateResult(authenticateResult: LoginResultDto, rememberMe?: boolean) {
+  private processAuthenticateResult(authenticateResult: LoginResultDto) {
     if (authenticateResult.accessToken) {
-      this.login(authenticateResult.accessToken, rememberMe);
+      this.startRefreshTokenTimer(authenticateResult.accessToken, authenticateResult.refreshToken);
+      this.login(authenticateResult.accessToken, authenticateResult.expiresIn);
     } else {
       console.warn('Unexpected authenticateResult!');
     }
   }
 
-  private login(accessToken: string, rememberMe?: boolean): void {
-    const tokenExpireDate = rememberMe ? (new Date(new Date().getTime() + 1000 * 432000)) : undefined;
+  private login(accessToken: string, expiresIn?: number): void {
     this.tokenService.setToken(
       accessToken,
-      tokenExpireDate
+      expiresIn
     );
+  }
+
+  private startRefreshTokenTimer(token: string, refreshToken: string) {
+      // parse json object from base64 encoded jwt token
+      const jwtToken = JSON.parse(atob(token.split('.')[1]));
+
+      // set a timeout to refresh the token a minute before it expires
+      const expires = new Date(jwtToken.exp * 1000);
+      const timeout = expires.getTime() - Date.now() - (60 * 1000);
+      this.refreshTokenTimeout = setTimeout(() => this.refreshToken(refreshToken), timeout);
+  }
+
+  private stopRefreshTokenTimer() {
+      clearTimeout(this.refreshTokenTimeout);
+  }
+
+  private refreshToken(refreshToken: string) {
+    console.log(refreshToken);
   }
 
   setTenantCookie(tenantId: string) {

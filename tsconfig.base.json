@@ -1,0 +1,72 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "es2020",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "incremental": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "@ngrx/*": [
+        "./node_modules/@ngrx/*"
+      ],
+      "@ngx-translate/*": [
+        "./node_modules/@ngx-translate/*"
+      ],
+      "rxjs/*": [
+        "./node_modules/rxjs/*"
+      ],
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ],
+      "@redux/*": [
+        "./projects/craftsjs-app/src/app/@redux/*"
+      ],
+      "@craftsjs/boilerplate": [
+        "dist/craftsjs/boilerplate/craftsjs-boilerplate",
+        "dist/craftsjs/boilerplate",
+      ],
+      "@craftsjs/alert": [
+        "./node_modules/@craftsjs/alert"
+      ],
+      "@craftsjs/card": [
+        "./node_modules/@craftsjs/card"
+      ],
+      "@craftsjs/core": [
+        "./node_modules/@craftsjs/core"
+      ],
+      "@craftsjs/menu-admin": [
+        "./node_modules/@craftsjs/menu-admin"
+      ],
+      "@craftsjs/modal": [
+        "./node_modules/@craftsjs/modal"
+      ],
+      "@craftsjs/ngrx-action": [
+        "./node_modules/@craftsjs/ngrx-action"
+      ],
+      "@craftsjs/notifier": [
+        "./node_modules/@craftsjs/notifier"
+      ],
+      "@craftsjs/perfect-scrollbar": [
+        "./node_modules/@craftsjs/perfect-scrollbar"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": false,
+    "enableIvy": true
+  }
+}

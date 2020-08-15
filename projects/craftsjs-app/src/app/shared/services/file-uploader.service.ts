@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TokenService, CONFIGURATION_BOILERPLATE, ConfigurationModel } from '@craftsjs/boilerplate';
-import { L10nTranslationService } from 'angular-l10n';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class FileUploaderService {
 
   constructor(
     private _tokenService: TokenService,
-    private _translateService: L10nTranslationService,
+    private _translateService: TranslateService,
     private _notifier: NotifierService,
     private _httClient: HttpClient,
     @Inject(CONFIGURATION_BOILERPLATE)
@@ -42,8 +42,8 @@ export class FileUploaderService {
         }
       } else {
         this._notifier.openError(
-          this._translateService.translate('general.error'),
-          this._translateService.translate(ajaxResponse.error.message),
+          this._translateService.instant('general.error'),
+          this._translateService.instant(ajaxResponse.error.message),
         );
       }
     };

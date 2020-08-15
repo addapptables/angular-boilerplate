@@ -5,7 +5,7 @@ import { Store, select } from '@ngrx/store';
 import * as LanguageActions from './stores/translate.actions';
 import { selectAllLanguages, selectLoading, selectLanguage } from './selectors/translate.selector';
 import * as moment from 'moment';
-import { L10nTranslationService } from 'angular-l10n';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-translate',
@@ -23,7 +23,7 @@ export class SelectLanguageComponent implements OnInit {
 
   constructor(
     readonly _store: Store,
-    private readonly _translateService: L10nTranslationService
+    private readonly _translateService: TranslateService
   ) {
     _store.dispatch(LanguageActions.loadLanguages());
   }
@@ -36,12 +36,12 @@ export class SelectLanguageComponent implements OnInit {
       select(selectLoading)
     );
     this.selectLanguage$ = this._store.pipe(
-      select(selectLanguage(this._translateService.getLocale()?.language))
+      select(selectLanguage(this._translateService.currentLang))
     );
   }
 
   async changeLanguage(language: LanguageModel) {
-    await this._translateService.setLocale(language.i18nLocale);
+    await this._translateService.use(language.i18nLocale.language);
     this.selectLanguage$ = of(language);
     moment.locale(language.id);
   }

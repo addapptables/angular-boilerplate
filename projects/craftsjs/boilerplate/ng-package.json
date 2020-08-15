@@ -6,7 +6,7 @@
     "umdModuleIds": {
       "ngx-cookie-service": "ngx-cookie-service",
       "@craftsjs/alert": "craftsjs-alert",
-      "angular-l10n": "angular-l10n"
+      "@ngx-translate/core": "@ngx-translate/core"
     }
   }
 }

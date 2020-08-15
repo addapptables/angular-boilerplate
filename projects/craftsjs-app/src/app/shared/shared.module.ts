@@ -8,7 +8,7 @@ import { MomentFormatPipe } from './pipes/moment-format.pipe';
 import { ScrollDirective } from './directives/scroll.directive';
 import { IsGrantedActionColumnPipe } from './pipes/is-granted-action-column.pipe';
 import { IsGrantedPipe } from './pipes/is-granted.pipe';
-import { L10nTranslationModule, L10nIntlModule } from 'angular-l10n';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,7 @@ import { L10nTranslationModule, L10nIntlModule } from 'angular-l10n';
   ],
   exports: [
     CommonModule,
-    L10nTranslationModule,
-    L10nIntlModule,
+    TranslateModule,
     PerfectScrollbarModule,
     CardModule,
     MatIconModule,

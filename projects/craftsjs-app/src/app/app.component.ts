@@ -2,6 +2,7 @@ import { Component, AfterViewInit, OnDestroy, ChangeDetectionStrategy } from '@a
 import { ResponsiveService } from '@craftsjs/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { LocalizationService } from './localization/localization.service';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,11 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   unsubscribeAll = new Subject<any>();
 
   constructor(
+    readonly localizationService: LocalizationService,
     private readonly responsiveService: ResponsiveService
-  ) { }
+  ) { 
+    localizationService.initDefaultLanguage();
+  }
 
   ngAfterViewInit(): void {
     this.responsiveService.resize$.pipe(

@@ -1,6 +1,6 @@
 import { ControlValueAccessor, NgForm, FormGroupDirective, NgControl } from '@angular/forms';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { Input, OnDestroy, DoCheck, ElementRef, Optional, Self, HostBinding, Output, EventEmitter } from '@angular/core';
+import { Input, OnDestroy, DoCheck, ElementRef, Optional, Self, HostBinding, Output, EventEmitter, Directive } from '@angular/core';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import {
@@ -28,6 +28,7 @@ const _MatSelectMixinBase:
   typeof MatSelectBase =
   mixinDisableRipple(mixinTabIndex(mixinDisabled(mixinErrorState(MatSelectBase))));
 
+@Directive()
 export class BaseControlValueAccessor<T> extends
   _MatSelectMixinBase implements ControlValueAccessor, MatFormFieldControl<any>, OnDestroy, DoCheck {
 

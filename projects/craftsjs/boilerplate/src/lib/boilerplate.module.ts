@@ -10,7 +10,7 @@ import { CraftsjsHttpInterceptor } from './services/interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpErrorResponseService } from './services/http-error-response.service';
 import { SessionService } from './services/session.service';
-import { L10nTranslationModule } from 'angular-l10n';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   providers: [
@@ -19,7 +19,7 @@ import { L10nTranslationModule } from 'angular-l10n';
 })
 export class BoilerplateModule {
 
-  static forRoot(boilerplateModel: BoilerplateModel = { isProduction: false }): ModuleWithProviders {
+  static forRoot(boilerplateModel: BoilerplateModel = { isProduction: false }): ModuleWithProviders<BoilerplateModule> {
     return {
       ngModule: BoilerplateModule,
       providers: [
@@ -28,7 +28,7 @@ export class BoilerplateModule {
         CookieService,
         HttpErrorResponseService,
         SessionService,
-        L10nTranslationModule,
+        TranslateModule,
         {
           provide: HTTP_INTERCEPTORS,
           useClass: CraftsjsHttpInterceptor,

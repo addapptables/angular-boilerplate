@@ -8,7 +8,7 @@ import { Subject, BehaviorSubject } from 'rxjs';
 import { ModalService } from '@craftsjs/modal';
 import { RoleOrganizationUnitFormModalComponent } from '../role-organization-unit-form-modal/role-organization-unit-form-modal.component';
 import { AlertService } from '@craftsjs/alert';
-import { L10nTranslationService } from 'angular-l10n';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-role-organization-unit-list',
@@ -47,7 +47,7 @@ export class RoleOrganizationUnitListComponent implements OnInit, OnDestroy {
     private _organizationUnitService: OrganizationUnitService,
     private _modalService: ModalService,
     private _alertService: AlertService,
-    private _translateService: L10nTranslationService
+    private _translateService: TranslateService
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -68,8 +68,8 @@ export class RoleOrganizationUnitListComponent implements OnInit, OnDestroy {
   }
 
   delete({ id, name }: OrganizationUnitRoleDto) {
-    const title = this._translateService.translate('general.delete');
-    const message = this._translateService.translate('organizationUnit.areYouSureDeleteRole', { title: name });
+    const title = this._translateService.instant('general.delete');
+    const message = this._translateService.instant('organizationUnit.areYouSureDeleteRole', { title: name });
     const dialog = this._alertService.showConfirmation(title, message);
     dialog.beforeClosed().pipe(
       takeUntil(this.unsubscribeAll),

@@ -1,19 +1,19 @@
-<card>
+<craftsjs-card>
   <card-header>
     <card-header-oval>
       <card-title>
         <mat-icon suffix>supervised_user_circle</mat-icon>
-        <h4>{{'role.title' | translateAsync}}</h4>
+        <h4>{{'role.title' | translate}}</h4>
       </card-title>
     </card-header-oval>
     <card-header-subtitle *ngIf="'Page.Administration.Role.Create' | isGranted">
       <button type="button" color="accent" mat-raised-button (click)="createRole()">
         <mat-icon suffix>group_add</mat-icon>
-        {{'role.create' | translateAsync}}
+        {{'role.create' | translate}}
       </button>
     </card-header-subtitle>
   </card-header>
   <card-body>
     <app-role-list></app-role-list>
   </card-body>
-</card>
+</craftsjs-card>

@@ -8,7 +8,7 @@
           <!-- Actions Column -->
           <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef>
-              {{'general.actions' | translateAsync}}
+              {{'general.actions' | translate}}
             </mat-header-cell>
             <mat-cell class="text-light-gray" *matCellDef="let edition">
               <button mat-icon-button (click)="editEdition(edition)" *ngIf="'Page.Edition.Update' | isGranted">
@@ -22,21 +22,21 @@
 
             <!-- name Column -->
             <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef>{{'edition.name' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let edition" title="{{'edition.name' | translateAsync}}"> {{edition.name}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef>{{'edition.name' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let edition" title="{{'edition.name' | translate}}"> {{edition.name}} </mat-cell>
             </ng-container>
             <!-- name Column -->
 
             <!-- isFree Column -->
             <ng-container matColumnDef="isFree">
-                <mat-header-cell *matHeaderCellDef>{{'edition.isFree' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let edition" title="{{'edition.isFree' | translateAsync}}">
+                <mat-header-cell *matHeaderCellDef>{{'edition.isFree' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let edition" title="{{'edition.isFree' | translate}}">
                   <ng-container [ngSwitch]="edition.isFree">
                     <span *ngSwitchCase="true">
-                      {{'general.yes' | translateAsync}}
+                      {{'general.yes' | translate}}
                     </span>
                     <span *ngSwitchCase="false">
-                      {{'general.no' | translateAsync}}
+                      {{'general.no' | translate}}
                     </span>
                   </ng-container>
                 </mat-cell>
@@ -45,24 +45,24 @@
 
             <!-- price Column -->
             <ng-container matColumnDef="price">
-                <mat-header-cell *matHeaderCellDef>{{'edition.price' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let edition" title="{{'edition.price' | translateAsync}}"> {{edition.price | number: '1.'}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef>{{'edition.price' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let edition" title="{{'edition.price' | translate}}"> {{edition.price | number: '1.'}} </mat-cell>
             </ng-container>
             <!-- price Column -->
 
             <!-- editionType Column -->
             <ng-container matColumnDef="editionType">
-                <mat-header-cell *matHeaderCellDef>{{'edition.editionType' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let edition" title="{{'edition.editionType' | translateAsync}}">
+                <mat-header-cell *matHeaderCellDef>{{'edition.editionType' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let edition" title="{{'edition.editionType' | translate}}">
                   <ng-container [ngSwitch]="edition.editionType">
                     <span *ngSwitchCase="1">
-                      {{'general.monthly' | translateAsync}}
+                      {{'general.monthly' | translate}}
                     </span>
                     <span *ngSwitchCase="2">
-                      {{'general.biannual' | translateAsync}}
+                      {{'general.biannual' | translate}}
                     </span>
                     <span *ngSwitchCase="3">
-                      {{'general.annual' | translateAsync}}
+                      {{'general.annual' | translate}}
                     </span>
                   </ng-container>
                 </mat-cell>
@@ -71,15 +71,15 @@
 
             <!-- trialDayCount Column -->
             <ng-container matColumnDef="trialDayCount">
-                <mat-header-cell *matHeaderCellDef>{{'edition.trialDayCount' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let edition" title="{{'edition.trialDayCount' | translateAsync}}"> {{edition.trialDayCount}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef>{{'edition.trialDayCount' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let edition" title="{{'edition.trialDayCount' | translate}}"> {{edition.trialDayCount}} </mat-cell>
             </ng-container>
             <!-- trialDayCount Column -->
 
             <!-- numberOfUsers Column -->
             <ng-container matColumnDef="numberOfUsers">
-                <mat-header-cell *matHeaderCellDef>{{'edition.numberOfUsers' | translateAsync}}</mat-header-cell>
-                <mat-cell *matCellDef="let edition" title="{{'edition.numberOfUsers' | translateAsync}}"> {{edition.numberOfUsers}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef>{{'edition.numberOfUsers' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let edition" title="{{'edition.numberOfUsers' | translate}}"> {{edition.numberOfUsers}} </mat-cell>
             </ng-container>
             <!-- numberOfUsers Column -->
 

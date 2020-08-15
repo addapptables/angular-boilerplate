@@ -32,7 +32,10 @@
               "projects/craftsjs-app/src/styles/font-awesome/css/all.min.css"
             ],
             "scripts": [],
-            "preserveSymlinks": true
+            "preserveSymlinks": true,
+            "allowedCommonJsDependencies": [
+              "lodash"
+            ]
           },
           "configurations": {
             "production": {

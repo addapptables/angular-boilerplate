@@ -22,8 +22,8 @@ export class UserActionService extends ActionBaseService {
 
   deleteUser(user: UserDto) {
     this.delete(
-      this._translateService.translate('general.delete'),
-      this._translateService.translate('user.areYouSure', { title: user.name }),
+      this._translateService.instant('general.delete'),
+      this._translateService.instant('user.areYouSure', { title: user.name }),
       UserActions.deleteUser({ payload: { id: user.id } })
     );
   }

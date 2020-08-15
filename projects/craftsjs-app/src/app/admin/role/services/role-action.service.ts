@@ -22,8 +22,8 @@ export class RoleActionService extends ActionBaseService {
 
   deleteRole(role: RoleDto) {
     this.delete(
-      this._translateService.translate('general.delete'),
-      this._translateService.translate('role.areYouSure', { title: role.name }),
+      this._translateService.instant('general.delete'),
+      this._translateService.instant('role.areYouSure', { title: role.name }),
       RoleActions.deleteRole({ payload: { id: role.id } })
     );
   }

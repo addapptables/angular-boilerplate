@@ -1,8 +1,8 @@
-<card>
+<craftsjs-card>
   <card-header>
     <card-header-oval>
       <card-title>
-        <h4>{{'profile.basicInfo' | translateAsync}}</h4>
+        <h4>{{'profile.basicInfo' | translate}}</h4>
       </card-title>
     </card-header-oval>
   </card-header>
@@ -15,7 +15,7 @@
       <div class="details" *ngIf="result$ | async as profile">
         <div class="profile-details-field">
           <h4>
-            {{'user.userName' | translateAsync}}:
+            {{'user.userName' | translate}}:
           </h4>
           <span>
             {{profile.name}}
@@ -23,7 +23,7 @@
         </div>
         <div class="profile-details-field">
           <h4>
-            {{'user.fullName' | translateAsync}}:
+            {{'user.fullName' | translate}}:
           </h4>
           <span>
             {{profile.name}} - {{profile.surname}}
@@ -31,7 +31,7 @@
         </div>
         <div class="profile-details-field">
           <h4>
-            {{'user.emailAddress' | translateAsync}}:
+            {{'user.emailAddress' | translate}}:
           </h4>
           <span>
             {{ profile.emailAddress }}
@@ -40,4 +40,4 @@
       </div>
     </div>
   </card-body>
-</card>
+</craftsjs-card>
