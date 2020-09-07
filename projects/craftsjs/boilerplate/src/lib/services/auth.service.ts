@@ -63,7 +63,7 @@ export class AuthService {
 
   private processAuthenticateResult(authenticateResult: LoginResultDto) {
     if (authenticateResult.accessToken) {
-      this.startRefreshTokenTimer(authenticateResult.accessToken, authenticateResult.refreshToken);
+      // this.startRefreshTokenTimer(authenticateResult.accessToken, authenticateResult.refreshToken);
       this.login(authenticateResult.accessToken, authenticateResult.expiresIn);
     } else {
       console.warn('Unexpected authenticateResult!');
@@ -77,7 +77,7 @@ export class AuthService {
     );
   }
 
-  private startRefreshTokenTimer(token: string, refreshToken: string) {
+  startRefreshTokenTimer(token: string, refreshToken: string) {
       // parse json object from base64 encoded jwt token
       const jwtToken = JSON.parse(atob(token.split('.')[1]));
 

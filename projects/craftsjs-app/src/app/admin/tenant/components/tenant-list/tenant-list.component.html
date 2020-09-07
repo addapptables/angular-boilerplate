@@ -12,13 +12,13 @@
               {{'general.actions' | translate}}
             </mat-header-cell>
             <mat-cell class="text-light-gray" *matCellDef="let tenant">
-              <button mat-icon-button (click)="editTenant(tenant)" *ngIf="'Page.Tenants.Update' | isGranted">
+              <button mat-icon-button (click)="editTenant(tenant)" *ngIf="'Page.Tenant.Update' | isGranted">
                 <mat-icon suffix>edit</mat-icon>
               </button>
-              <button *ngIf="'Page.Tenants.Delete' | isGranted" mat-icon-button (click)="deleteTenant(tenant)">
+              <button *ngIf="'Page.Tenant.Delete' | isGranted" mat-icon-button (click)="deleteTenant(tenant)">
                 <mat-icon suffix>delete</mat-icon>
               </button>
-              <button *ngIf="'Page.Tenants.Impersonation' | isGranted" mat-icon-button (click)="openModalImpersonation(tenant.id)"
+              <button *ngIf="'Page.Tenant.Impersonation' | isGranted" mat-icon-button (click)="openModalImpersonation(tenant.id)"
                 [matTooltip]="'tenant.impersonation' | translate" matTooltipPosition="above">
                 <mat-icon suffix>supervisor_account</mat-icon>
               </button>
@@ -62,8 +62,8 @@
             </ng-container>
             <!-- edition Column -->
 
-            <mat-header-row *matHeaderRowDef="dataSource.displayedColumns | isGrantedActionColumn: ['Page.Tenants.Update', 'Page.Tenants.Delete', 'Page.Tenants.Impersonation']"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: dataSource.displayedColumns | isGrantedActionColumn: ['Page.Tenants.Update', 'Page.Tenants.Delete', 'Page.Tenants.Impersonation'];"></mat-row>
+            <mat-header-row *matHeaderRowDef="dataSource.displayedColumns | isGrantedActionColumn: ['Page.Tenant.Update', 'Page.Tenant.Delete', 'Page.Tenant.Impersonation']"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: dataSource.displayedColumns | isGrantedActionColumn: ['Page.Tenant.Update', 'Page.Tenant.Delete', 'Page.Tenant.Impersonation'];"></mat-row>
         </mat-table>
         <mat-paginator [length]="dataSource.total$ | async" [pageSize]="10" hidePageSize="true"></mat-paginator>
     </div>

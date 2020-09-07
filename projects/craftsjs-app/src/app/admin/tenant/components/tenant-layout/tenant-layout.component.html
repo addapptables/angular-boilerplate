@@ -6,7 +6,7 @@
         <h4>{{'tenant.title' | translate}}</h4>
       </card-title>
     </card-header-oval>
-    <card-header-subtitle *ngIf="'Page.Tenants.Create' | isGranted">
+    <card-header-subtitle *ngIf="'Page.Tenant.Create' | isGranted">
       <button color="accent" mat-raised-button (click)="createTenant()">
         <mat-icon suffix>add</mat-icon>
         {{'tenant.create' | translate}}
