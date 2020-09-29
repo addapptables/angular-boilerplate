@@ -41,7 +41,7 @@ export class SelectLanguageComponent implements OnInit {
   }
 
   async changeLanguage(language: LanguageModel) {
-    await this._translateService.use(language.i18nLocale.language);
+    await this._translateService.use(language.i18nLocale.language).toPromise();
     this.selectLanguage$ = of(language);
     moment.locale(language.id);
   }

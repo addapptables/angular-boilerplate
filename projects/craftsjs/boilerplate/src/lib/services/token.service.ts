@@ -19,14 +19,14 @@ export class TokenService {
   }
 
   clearToken(): void {
-    this.cookieService.delete(this.tokenCookieName, '/', undefined, false, "Lax");
+    this.cookieService.delete(this.tokenCookieName, '/', undefined, false, 'Lax');
   }
 
   setToken(authToken: string, expireDate?: number): void {
     if(this.getToken()) {
       this.clearToken();
     }
-    this.cookieService.set(this.tokenCookieName, authToken, expireDate, '/', undefined, false, "Lax");
+    this.cookieService.set(this.tokenCookieName, authToken, expireDate, '/', undefined, false, 'Lax');
   }
 
 }

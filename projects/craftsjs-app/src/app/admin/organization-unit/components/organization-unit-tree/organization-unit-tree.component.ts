@@ -87,8 +87,8 @@ export class OrganizationUnitTreeComponent implements OnDestroy {
 
   onContextMenu(event: MouseEvent, node: OrganizationUnitDto) {
     event.preventDefault();
-    this.contextMenuPosition.x = event.clientX + 'px';
-    this.contextMenuPosition.y = event.clientY + 'px';
+    this.contextMenuPosition.x = `${event.clientX}px`;
+    this.contextMenuPosition.y = `${event.clientY}px`;
     this.contextMenu.menuData = { organizationUnit: node };
     this.contextMenu.openMenu();
   }

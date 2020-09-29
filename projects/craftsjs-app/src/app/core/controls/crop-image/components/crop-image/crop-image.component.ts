@@ -54,12 +54,14 @@ export class CropImageComponent implements ControlValueAccessor, AfterViewInit {
     this.cropperSettings.dynamicSizing = true;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   propagateChange = (_: any) => { };
   onTouched: any = () => { };
 
   selectFile(event: File) {
     const image = new Image();
     const reader = new FileReader();
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const self = this;
     reader.onloadend = (loadEvent: any) => {
       image.src = loadEvent.target.result;

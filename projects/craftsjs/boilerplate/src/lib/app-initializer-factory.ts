@@ -17,7 +17,7 @@ export function appInitializerFactory(injector: Injector) {
         finalize(() => resolve(true)),
         catchError((err) => {
           reject(err);
-          throw new Error(`Can't load initial configuration`);
+          throw new Error('Can\'t load initial configuration');
         })
       ).subscribe();
     });

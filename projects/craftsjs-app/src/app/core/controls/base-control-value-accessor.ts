@@ -107,6 +107,7 @@ export class BaseControlValueAccessor<T> extends
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   propagateChange = (_: any) => { };
   onTouched: any = () => { };
 

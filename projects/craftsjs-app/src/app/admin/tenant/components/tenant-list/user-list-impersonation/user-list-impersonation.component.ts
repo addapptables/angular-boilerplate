@@ -35,7 +35,6 @@ export class UserListImpersonationComponent implements OnDestroy {
   }
 
   impersonation(user: UserDto) {
-    console.log(user);
     this.saveSubject.next(true);
     this._authService.impersonatedAuthenticate({ userId: user.id, tenantImpersonationId: this.tenantId }).pipe(
       takeUntil(this.unsubscribeAll)

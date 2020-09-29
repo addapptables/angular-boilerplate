@@ -3,7 +3,7 @@ import {
   RouterReducerState,
   RouterStateSerializer,
 } from '@ngrx/router-store';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 export interface RouterStateUrl {
   url: string;
