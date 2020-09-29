@@ -1,0 +1,17 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+      "outDir": "./dist",
+      "types": []
+    },
+    "include": [
+      "projects/**/*.d.ts",
+      "projects/**/*.ts"
+    ],
+    "exclude": [
+      "projects/**/*.spec.ts",
+      "projects/**/test.ts",
+      "projects/**/*.e2e-spec.ts"
+    ]
+  }
+  

@@ -13,6 +13,7 @@ export class LocalizationService {
         this._translateService.addLangs(['en', 'es']);
         this._translateService.setDefaultLang('en');
         const browserLang = this._translateService.getBrowserLang();
+        // eslint-disable-next-line @typescript-eslint/prefer-regexp-exec
         const lang = browserLang.match(/en|es/) ? browserLang : 'en';
         moment.locale(lang);
         this._translateService.use(lang);

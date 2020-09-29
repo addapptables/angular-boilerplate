@@ -31,6 +31,7 @@ export class PermissionTreeComponent implements ControlValueAccessor, OnDestroy 
   dataSource: MatTreeFlatDataSource<PermissionTreeModel, PermissionTreeFlatNode>;
   checklistSelection = new SelectionModel<PermissionTreeFlatNode>(true);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   propagateChange = (_: any) => { };
   onTouched: any = () => { };
 

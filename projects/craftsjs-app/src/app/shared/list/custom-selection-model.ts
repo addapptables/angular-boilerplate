@@ -104,7 +104,7 @@ export class CustomSelectionModel<T extends ICustomSelection<any>> {
    */
   sort(predicate?: (a: T, b: T) => number): void {
     if (this._multiple && this.selected) {
-      this._selected!.sort(predicate);
+      this._selected.sort(predicate);
     }
   }
 

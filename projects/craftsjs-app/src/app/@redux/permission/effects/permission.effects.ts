@@ -21,6 +21,7 @@ export class PermissionEffects {
   loadData$ = createEffect(() => this._actions$.pipe(
     ofType(PermissionActions.loadPermissions),
     withLatestFrom(this._store.pipe(select(selectAllPermissions))),
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     filter(([_, allPermissions]) => allPermissions.length === 0),
     switchMap(() =>
       this._permissionService.getAll().pipe(

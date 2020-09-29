@@ -1,8 +1,9 @@
-import { OnDestroy } from '@angular/core';
+import { OnDestroy, Injectable } from '@angular/core';
 import { Store, Action, select, MemoizedSelector } from '@ngrx/store';
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil, withLatestFrom, tap } from 'rxjs/operators';
 
+@Injectable()
 export abstract class InfiniteScroll<T, F> implements OnDestroy {
 
   protected unsubscribeAll = new Subject();

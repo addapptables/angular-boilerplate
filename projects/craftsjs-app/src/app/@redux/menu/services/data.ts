@@ -15,7 +15,7 @@ export const menus: MenuModelTenant[] = [
         multiOption: false,
         url: '/admin/tenants',
         exact: true,
-        permission: 'Page.Tenants',
+        permission: 'Page.Tenant',
         viewTenant: true
     },
     {

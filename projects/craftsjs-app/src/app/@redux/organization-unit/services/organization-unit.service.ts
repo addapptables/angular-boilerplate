@@ -28,7 +28,7 @@ export class OrganizationUnitService extends ServiceApiBase {
   }
 
   getRoleOrganizationUnits() {
-    const url = `user/organization-units`;
+    const url = 'user/organization-units';
     return this.get<OrganizationUnitDto[]>(url);
   }
 
